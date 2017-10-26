@@ -1,5 +1,8 @@
 <template>
   <div>
+    <p><nuxt-link to="/">HOME</nuxt-link></p>
+    <p><nuxt-link to="/annonces/create">Annonce create</nuxt-link></p>
+    <p><nuxt-link to="/login">login</nuxt-link></p>
     <nuxt/>
   </div>
 </template>

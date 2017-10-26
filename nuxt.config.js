@@ -1,3 +1,7 @@
+const bodyParser = require('body-parser')
+const session = require('express-session')
+const config = require('./config/server')
+
 module.exports = {
   /*
   ** Headers of the page
@@ -23,11 +27,29 @@ module.exports = {
   css: [
     '@/assets/css/main.scss'
   ],
+
+  modules: [
+    [
+      '@nuxtjs/axios',
+      {
+        requestInterceptor: (config, { store }) => {
+          if (store.state.token) {
+            config.headers['Authorization'] = store.state.token
+            config.withCredentials = true
+          }
+          return config
+        },
+        baseURL: config.apiUrl,
+        browserBaseURL: config.apiUrl
+      }
+    ]
+  ],
+
   build: {
     /*
     ** Run ESLint on save
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -36,6 +58,22 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
-  }
+    },
+    vendor: ['axios']
+
+  },
+  serverMiddleware: [
+    // body-parser middleware
+    bodyParser.json(),
+    // session middleware
+    session({
+      secret: 'super-secret-key',
+      resave: false,
+      saveUninitialized: false,
+      cookie: { maxAge: 60000 }
+    }),
+    // Api middleware
+    // We add /api/login & /api/logout routes
+    '~/api'
+  ]
 }

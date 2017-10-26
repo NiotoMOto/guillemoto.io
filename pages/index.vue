@@ -24,7 +24,7 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import request from '~/services/request'
+import request from '~/plugins/request'
 
 export default {
   components: {

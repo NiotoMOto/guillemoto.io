@@ -8,8 +8,11 @@
       </div>
       <button type="submit">Login</button>
       <div>
-        <span v-if="loginSuccess">LOGIN SUCCES :-) !</span>
-        <span v-if="loginFailed">LOGIN FAILED :-() !</span>
+        <div v-if="authUser">
+          LOGIN SUCCES :-) !
+          {{ authUser.userName }}
+        </div>
+        <div v-if="loginFailed">LOGIN FAILED :-() !</div>
       </div>
     </form>
 
@@ -24,8 +27,6 @@
 </template>
 
 <script>
-import request from '~/services/request'
-import auth from '~/services/auth'
 
 export default {
   data: () => ({
@@ -36,10 +37,15 @@ export default {
     unauthorized: false,
     users: []
   }),
+  computed: {
+    authUser () {
+      return this.$store.state.authUser
+    }
+  },
   methods: {
     getUser () {
       this.unauthorized = false
-      request.get('/users').then(res => {
+      this.$axios.get('/users').then(res => {
         this.users = res.data
       }).catch(() => {
         this.unauthorized = true
@@ -50,16 +56,7 @@ export default {
         userName: this.userName,
         password: this.password
       }
-      request.post('/custom/login', params).then(res => {
-        auth.login(res.data.token)
-        this.annonces = res.data
-        this.loginSuccess = true
-        this.loginFailed = false
-        this.unauthorized = false
-      }).catch(() => {
-        this.loginFailed = true
-        this.loginSuccess = false
-      })
+      this.$store.dispatch('login', params)
     }
   }
 }
