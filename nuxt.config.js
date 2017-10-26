@@ -34,7 +34,7 @@ module.exports = {
       {
         requestInterceptor: (config, { store }) => {
           if (store.state.token) {
-            config.headers['Authorization'] = store.state.token
+            config.headers['Authorization'] = `Bearer ${store.state.token}`
             config.withCredentials = true
           }
           return config
