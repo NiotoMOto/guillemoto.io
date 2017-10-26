@@ -13,15 +13,38 @@
         <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
       </div>
     </div>
+    <div>
+      <button v-on:click="refreshAnnonces">Refresh</button>
+      <li v-for="annonce in annonces">
+        {{ annonce.name }}
+      </li>
+    </div>
   </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import request from '~/services/request'
 
 export default {
   components: {
     Logo
+  },
+  data: () => ({
+    annonces: []
+  }),
+  methods: {
+    refreshAnnonces: function (e) {
+      console.log('refresh')
+      request.get('/annonces').then(res => {
+        this.annonces = res.data
+      })
+    }
+  },
+  asyncData () {
+    return request.get('/annonces').then(res => (
+      { annonces: res.data }
+    ))
   }
 }
 </script>
