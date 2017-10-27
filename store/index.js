@@ -38,6 +38,12 @@ export const actions = {
   async logout ({ commit }) {
     await axios.post('/api/logout')
     commit('SET_USER', null)
+  },
+
+  async register ({ state, commit }) {
+    const { data } = await axios.post('/api/register', { user: state.forms.user })
+    commit('SET_USER', data.user)
+    commit('SET_TOKEN', data.token)
   }
 
 }

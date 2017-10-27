@@ -36,6 +36,23 @@ router.post('/login', (req, res) => {
     }
   })
 })
+router.post('/register', (req, res) => {
+  axios.post(`${config.apiUrl}/custom/register`, req.body.user).then(apiRes => {
+    const { data } = apiRes
+    console.log(apiRes)
+    if (data.user) {
+      req.session.authUser = data.user
+      req.session.token = data.token
+      return res.json(data)
+    }
+  }).catch((err) => {
+    if (err.response.status === 401) {
+      return res.status(401).json({ message: 'Bad credentials' })
+    } else {
+      return res.status(500).json({ message: err })
+    }
+  })
+})
 
 // Add POST - /api/logout
 router.post('/logout', (req, res) => {
