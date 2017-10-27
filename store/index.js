@@ -19,6 +19,7 @@ export const actions = {
   nuxtServerInit ({ commit }, { req }) {
     if (req.session && req.session.authUser) {
       commit('SET_USER', req.session.authUser)
+      commit('SET_TOKEN', req.session.token)
     }
   },
   async login ({ commit }, { userName, password }) {

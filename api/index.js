@@ -21,7 +21,6 @@ router.post('/login', (req, res) => {
     userName: req.body.userName,
     password: req.body.password
   }
-  console.log(req.params)
   return axios.post(`${config.apiUrl}/custom/login`, params).then(apiRes => {
     const { data } = apiRes
     if (data.user) {
@@ -30,7 +29,6 @@ router.post('/login', (req, res) => {
       return res.json(data)
     }
   }).catch((err) => {
-    console.log(err)
     if (err.response.status === 401) {
       return res.status(401).json({ message: 'Bad credentials' })
     } else {
