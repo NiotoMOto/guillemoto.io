@@ -24,7 +24,6 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import request from '~/plugins/request'
 
 export default {
   components: {
@@ -35,14 +34,13 @@ export default {
   }),
   methods: {
     refreshAnnonces: function (e) {
-      console.log('refresh')
-      request.get('/annonces').then(res => {
+      this.$axios.get('/annonces').then(res => {
         this.annonces = res.data
       })
     }
   },
-  asyncData () {
-    return request.get('/annonces').then(res => (
+  asyncData (context) {
+    return context.app.$axios.get('/annonces').then(res => (
       { annonces: res.data }
     ))
   }
