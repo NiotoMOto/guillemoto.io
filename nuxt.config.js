@@ -6,6 +6,7 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  dev: true,
   head: {
     title: 'annbouje',
     meta: [
@@ -33,8 +34,8 @@ module.exports = {
       '@nuxtjs/axios',
       {
         requestInterceptor: (config, { store }) => {
-          if (store.state.token) {
-            config.headers['Authorization'] = `Bearer ${store.state.token}`
+          if (store.state.token && store.state.user) {
+            config.headers['Authorization'] = `Bearer ${store.state.user.token}`
             config.withCredentials = true
           }
           return config
@@ -44,7 +45,6 @@ module.exports = {
       }
     ]
   ],
-
   build: {
     /*
     ** Run ESLint on save

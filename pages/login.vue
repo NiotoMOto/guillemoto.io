@@ -1,25 +1,46 @@
 <template>
   <section class="container">
     <h1>Login</h1>
-    <form v-on:submit.prevent="login">
-      <div>
-        <input type="text" v-model="userName" placeholder="Login" />
-        <input type="password" v-model="password" placeholder="Password" />
-      </div>
-      <button type="submit">Login</button>
-      <div>
-        <div v-if="authUser">
-          LOGIN SUCCES :-) !
-          {{ authUser.userName }}
+    <div v-if="!user">
+      <p><a href="/api/auth/facebook">facebook</a></p>
+      <p><a href="/api/auth/google">google</a></p>
+      <form v-on:submit.prevent="login">
+        <div>
+          <v-input
+            id="username"
+            :value="username"
+            name="username"
+            type="text"
+            :changeHandler="updateField"
+            placeholder="Prénom"
+            label="Votre prénom"
+          />
+          <v-input
+            id="password"
+            :value="password"
+            name="password"
+            type="password"
+            :changeHandler="updateField"
+            placeholder="Nom de famille"
+            label="Votre nom de famille"
+          />
         </div>
-        <div v-if="loginFailed">LOGIN FAILED :-() !</div>
-      </div>
-    </form>
+        <button type="submit">Login</button>
+        <div>
+          <div v-if="loginFailed">LOGIN FAILED :-() !</div>
+        </div>
+      </form>
+    </div>
+
+          <div v-if="user">
+            LOGIN SUCCES :-) !
+            {{ user.username }}
+          </div>
 
     <div>
       <button v-on:click="getUser">Get users</button>
       <li v-for="user in users">
-        {{ user.userName }}
+        {{ user.username }}
       </li>
       <div v-if="unauthorized">unauthorized !!!</div>
     </div>
@@ -27,19 +48,24 @@
 </template>
 
 <script>
+import vInput from '~/components/Input.vue'
 
 export default {
+  components: {
+    vInput
+  },
   data: () => ({
-    userName: '',
+    username: '',
     password: '',
     loginSuccess: false,
     loginFailed: false,
     unauthorized: false,
-    users: []
+    users: [],
+    form: 'login'
   }),
   computed: {
-    authUser () {
-      return this.$store.state.authUser
+    user () {
+      return this.$store.state.user
     }
   },
   methods: {
@@ -51,9 +77,12 @@ export default {
         this.unauthorized = true
       })
     },
+    updateField (field, value) {
+      this.$store.commit('forms/updateField', { form: this.form, field, value })
+    },
     login: function (e) {
       const params = {
-        userName: this.userName,
+        username: this.username,
         password: this.password
       }
       this.$store.dispatch('login', params)

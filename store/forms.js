@@ -1,15 +1,17 @@
 
 export const state = () => ({
-  user: {
-    firstName: '',
-    lastName: '',
-    userName: '',
+  register: {
+    username: '',
+    password: ''
+  },
+  login: {
+    username: '',
     password: ''
   }
 })
 
 export const mutations = {
-  updateUserField (state, { field, value }) {
-    state.user[field] = value
+  updateField (state, { form, field, value }) {
+    state[form][field] = value
   }
 }

@@ -1,51 +1,32 @@
 <template>
   <section class="container">
     <h1>Register</h1>
-    <form v-if="!authUser" v-on:submit.prevent="register">
+    <form v-if="!user" v-on:submit.prevent="register">
       <div>
         <v-input
-          id="prenom"
-          :value="firstName"
-          name="firstName"
+          id="username"
+          :value="username"
+          name="username"
           type="text"
           :changeHandler="updateField"
           placeholder="Prénom"
           label="Votre prénom"
         />
         <v-input
-          id="prenom"
-          :value="lastName"
-          name="lastName"
-          type="text"
+          id="password"
+          :value="password"
+          name="password"
+          type="password"
           :changeHandler="updateField"
           placeholder="Nom de famille"
           label="Votre nom de famille"
         />
-        <v-input
-          id="prenom"
-          :value="userName"
-          name="userName"
-          type="text"
-          :changeHandler="updateField"
-          placeholder="Login"
-          label="Votre login"
-        />
-        <v-input
-          id="prenom"
-          :value="password"
-          name="password"
-          type="text"
-          :changeHandler="updateField"
-          placeholder="Mot de passe"
-          label="Votre Mot de passe"
-        />
       </div>
-      {{ firstName }}
       <button type="submit">Login</button>
     </form>
 
-    <div v-if="authUser">
-      Vous etes déja connecté {{ authUser.userName }}
+    <div v-if="user">
+      Vous etes déja connecté {{ user.userName }}
     </div>
   </section>
 </template>
@@ -57,26 +38,23 @@ export default {
   components: {
     vInput
   },
+  data: () => ({
+    form: 'register'
+  }),
   computed: {
-    authUser () {
-      return this.$store.state.authUser
+    user () {
+      return this.$store.state.user
     },
-    firstName () {
-      return this.$store.state.forms.user.firstName
-    },
-    lastName () {
-      return this.$store.state.forms.user.lastName
-    },
-    userName () {
-      return this.$store.state.forms.user.userName
+    username () {
+      return this.$store.state.forms.register.username
     },
     password () {
-      return this.$store.state.forms.user.password
+      return this.$store.state.forms.register.password
     }
   },
   methods: {
     updateField (field, value) {
-      this.$store.commit('forms/updateUserField', { field, value })
+      this.$store.commit('forms/updateField', { form: this.form, field, value })
     },
     register () {
       this.$store.dispatch('register')

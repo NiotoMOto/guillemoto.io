@@ -13,6 +13,9 @@
         <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
       </div>
     </div>
+    <span v-if="user">
+      {{ user.username }}
+      </span>
     <div>
       <button v-on:click="refreshAnnonces">Refresh</button>
       <li v-for="annonce in annonces">
@@ -28,6 +31,11 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  computed: {
+    user () {
+      return this.$store.state.user
+    }
   },
   data: () => ({
     annonces: []

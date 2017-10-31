@@ -4,9 +4,20 @@
     <p><nuxt-link to="/annonces/create">Annonce create (private)</nuxt-link></p>
     <p><nuxt-link to="/login">login</nuxt-link></p>
     <p><nuxt-link to="/register">Register</nuxt-link></p>
+    <p><a href="#" v-on:click="logout">logout</a></p>
     <nuxt/>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    logout: function () {
+      this.$store.dispatch('logout')
+    }
+  }
+}
+</script>
 
 <style>
 html {

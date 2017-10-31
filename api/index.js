@@ -3,10 +3,16 @@ const axios = require('axios')
 const config = require('../config/server')
 // Create express router
 const router = express.Router()
+var morgan = require('morgan')
+const passport = require('passport')
+require('./auth/facebook')
+require('./auth/google')
+require('./auth/local')
 
 // Transform req & res to have the same API as express
 // So we can use res.status() & res.json()
 var app = express()
+
 router.use((req, res, next) => {
   Object.setPrototypeOf(req, app.request)
   Object.setPrototypeOf(res, app.response)
@@ -15,49 +21,49 @@ router.use((req, res, next) => {
   next()
 })
 
-// Add POST - /api/login
-router.post('/login', (req, res) => {
-  const params = {
-    userName: req.body.userName,
-    password: req.body.password
-  }
-  return axios.post(`${config.apiUrl}/custom/login`, params).then(apiRes => {
-    const { data } = apiRes
-    if (data.user) {
-      req.session.authUser = data.user
-      req.session.token = data.token
-      return res.json(data)
-    }
-  }).catch((err) => {
-    if (err.response.status === 401) {
-      return res.status(401).json({ message: 'Bad credentials' })
-    } else {
-      return res.status(500).json({ message: err })
-    }
-  })
-})
-router.post('/register', (req, res) => {
-  axios.post(`${config.apiUrl}/custom/register`, req.body.user).then(apiRes => {
-    const { data } = apiRes
-    console.log(apiRes)
-    if (data.user) {
-      req.session.authUser = data.user
-      req.session.token = data.token
-      return res.json(data)
-    }
-  }).catch((err) => {
-    if (err.response.status === 401) {
-      return res.status(401).json({ message: 'Bad credentials' })
-    } else {
-      return res.status(500).json({ message: err })
-    }
-  })
-})
+router.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }))
+router.use(require('cookie-parser')())
+router.use(require('body-parser').urlencoded({ extended: true }))
 
-// Add POST - /api/logout
+router.use(passport.initialize())
+app.use(passport.session())
+router.use(morgan('combined'))
+
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }))
+
+router.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  (req, res) => res.redirect('/'))
+
+router.get('/auth/facebook',
+  passport.authenticate('facebook', { scope: ['email'] }))
+
+router.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  (req, res) => res.redirect('/'))
+
+router.post('/login',
+  passport.authenticate('local', { failWithError: true }),
+  (req, res, next) => {
+    return res.json(req.user)
+  },
+  (err, req, res, next) => {
+    return res.json(err)
+  }
+)
+
+router.post('/register',
+  passport.authenticate('local-signup', { failWithError: true }),
+  (req, res, next) => {
+    return res.json(req.user)
+  },
+  (err, req, res, next) => {
+    return res.json(err)
+  }
+)
+
 router.post('/logout', (req, res) => {
-  delete req.session.authUser
-  delete req.session.token
+  req.logout()
   res.json({ ok: true })
 })
 
