@@ -8,8 +8,8 @@
 # install dependencies
 $ npm install # Or yarn install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+# serve with hot reload at localhost:3000 with dev: true in nuxt.config.js
+$ npm start
 
 # build for production and launch server
 $ npm run build

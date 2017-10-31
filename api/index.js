@@ -1,6 +1,5 @@
 const express = require('express')
-const axios = require('axios')
-const config = require('../config/server')
+
 // Create express router
 const router = express.Router()
 var morgan = require('morgan')
