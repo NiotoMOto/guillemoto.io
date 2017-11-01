@@ -1,0 +1,27 @@
+{
+    "home": {
+        "title": "Welcome"
+    },
+    "login": {
+        "login": "login"
+    },
+    "register" : {
+        "register": "register"
+    },
+    "links" : {
+        "french": "french",
+        "english": "english",
+        "register": "register",
+        "login": "login",
+        "create_annonce": "Create an announcement",
+        "logout": "logout",
+        "home": "home"
+    },
+    "inputs": {
+        "firstname": "your name",
+        "lastname": "your lastname",
+        "email": "your email address",
+        "password": "your password",
+        "login": "your ID"
+    }
+}

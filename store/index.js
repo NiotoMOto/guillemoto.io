@@ -2,15 +2,18 @@ import axios from 'axios'
 
 export const state = () => ({
   user: null,
-  token: null
+  locales: ['en', 'fr'],
+  local: 'en'
 })
 
 export const mutations = {
   SET_USER: function (state, user) {
     state.user = user
   },
-  SET_TOKEN: (state, token) => {
-    state.token = token
+  SET_LANG (state, locale) {
+    if (state.locales.indexOf(locale) !== -1) {
+      state.locale = locale
+    }
   }
 }
 

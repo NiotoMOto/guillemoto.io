@@ -1,6 +1,8 @@
 <template>
   <section class="container">
-    <h1>Register</h1>
+    <h1>{{ $t('register.register') }}</h1>
+    <p><a href="/api/auth/facebook">facebook</a></p>
+    <p><a href="/api/auth/google">google</a></p>
     <form v-if="!user" v-on:submit.prevent="register">
       <div>
         <v-input
@@ -9,8 +11,8 @@
           name="username"
           type="text"
           :changeHandler="updateField"
-          placeholder="Prénom"
-          label="Votre prénom"
+          :placeholder="$t('inputs.login')"
+          :label="$t('inputs.login')"
         />
         <v-input
           id="password"
@@ -18,15 +20,15 @@
           name="password"
           type="password"
           :changeHandler="updateField"
-          placeholder="Nom de famille"
-          label="Votre nom de famille"
+          :placeholder="$t('inputs.password')"
+          :label="$t('inputs.password')"
         />
       </div>
-      <button type="submit">Login</button>
+      <button type="submit">{{ $t('register.register') }}</button>
     </form>
 
     <div v-if="user">
-      Vous etes déja connecté {{ user.userName }}
+      Vous etes déja connecté {{ user.username }}
     </div>
   </section>
 </template>

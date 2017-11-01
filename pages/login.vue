@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <h1>Login</h1>
+    <h1>{{ $t('login.login') }}</h1>
     <div v-if="!user">
       <p><a href="/api/auth/facebook">facebook</a></p>
       <p><a href="/api/auth/google">google</a></p>
@@ -12,8 +12,8 @@
             name="username"
             type="text"
             :changeHandler="updateField"
-            placeholder="Prénom"
-            label="Votre prénom"
+            :placeholder="$t('inputs.login')"
+            :label="$t('inputs.login')"
           />
           <v-input
             id="password"
@@ -21,28 +21,12 @@
             name="password"
             type="password"
             :changeHandler="updateField"
-            placeholder="Nom de famille"
-            label="Votre nom de famille"
+            :placeholder="$t('inputs.password')"
+            :label="$t('inputs.password')"
           />
         </div>
-        <button type="submit">Login</button>
-        <div>
-          <div v-if="loginFailed">LOGIN FAILED :-() !</div>
-        </div>
+        <button type="submit">{{ $t('login.login') }}</button>
       </form>
-    </div>
-
-          <div v-if="user">
-            LOGIN SUCCES :-) !
-            {{ user.username }}
-          </div>
-
-    <div>
-      <button v-on:click="getUser">Get users</button>
-      <li v-for="user in users">
-        {{ user.username }}
-      </li>
-      <div v-if="unauthorized">unauthorized !!!</div>
     </div>
   </section>
 </template>
@@ -69,14 +53,6 @@ export default {
     }
   },
   methods: {
-    getUser () {
-      this.unauthorized = false
-      this.$axios.get('/users').then(res => {
-        this.users = res.data
-      }).catch(() => {
-        this.unauthorized = true
-      })
-    },
     updateField (field, value) {
       this.$store.commit('forms/updateField', { form: this.form, field, value })
     },
