@@ -45,11 +45,14 @@ module.exports = {
       }
     ]
   ],
+  router: {
+    middleware: 'i18n'
+  },
   build: {
     /*
     ** Run ESLint on save
     */
-    extend(config, ctx) {
+    extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -59,8 +62,7 @@ module.exports = {
         })
       }
     },
-    vendor: ['axios']
-
+    vendor: ['axios', 'vue-i18n']
   },
   serverMiddleware: [
     // body-parser middleware
@@ -75,5 +77,12 @@ module.exports = {
     // Api middleware
     // We add /api/login & /api/logout routes
     '~/api'
-  ]
+  ],
+  plugins: ['~/plugins/i18n.js'],
+  generate: {
+    routes: [
+      '/', '/login', '/register', '/annonces/create',
+      '/fr', '/fr/login', '/fr/register', '/fr/annonces/create'
+    ]
+  }
 }

@@ -1,0 +1,27 @@
+{
+    "home": {
+        "title": "Bienvenue"
+    },
+    "login": {
+        "login": "se connecter"
+    },
+    "register" : {
+        "register": "s'enregistrer"
+    },
+    "links" : {
+        "french": "francais",
+        "english": "anglais",
+        "register": "s'enregistrer",
+        "login": "se connecter",
+        "create_annonce": "création d'annonce",
+        "logout": "se deconnecter",
+        "home": "acceuil"
+    },
+    "inputs": {
+        "firstname": "votre prénom",
+        "lastname": "votre nom",
+        "email": "Votre addrese email",
+        "password": "votre mot de passe",
+        "login": "votre identifiant"
+    }
+}

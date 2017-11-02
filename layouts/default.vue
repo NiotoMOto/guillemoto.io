@@ -1,10 +1,16 @@
 <template>
   <div>
-    <p><nuxt-link to="/">HOME</nuxt-link></p>
-    <p><nuxt-link to="/annonces/create">Annonce create (private)</nuxt-link></p>
-    <p><nuxt-link to="/login">login</nuxt-link></p>
-    <p><nuxt-link to="/register">Register</nuxt-link></p>
-    <p><a href="#" v-on:click="logout">logout</a></p>
+    <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
+    <p><nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link></p>
+    <p><nuxt-link :to="path('/login')">{{ $t('links.login') }}</nuxt-link></p>
+    <p><nuxt-link :to="path('/register')">{{ $t('links.register') }}</nuxt-link></p>
+    <p><a href="#" v-on:click="logout">{{ $t('links.logout') }}</a></p>
+    <nuxt-link class="Header__Link" v-if="$i18n.locale === 'en'" :to="`/fr` + $route.fullPath" active-class="none" exact>
+      {{ $t('links.french') }}
+    </nuxt-link>
+    <nuxt-link class="Header__Link" v-else :to="$route.fullPath.replace(/^\/[^\/]+/, '')" active-class="none" exact>
+      {{ $t('links.english') }}
+    </nuxt-link>
     <nuxt/>
   </div>
 </template>
@@ -14,6 +20,9 @@ export default {
   methods: {
     logout: function () {
       this.$store.dispatch('logout')
+    },
+    path (url) {
+      return this.$i18n.locale === 'en' ? url : '/' + this.$i18n.locale + url
     }
   }
 }
@@ -21,7 +30,8 @@ export default {
 
 <style>
 html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -31,7 +41,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
 }
