@@ -1,16 +1,22 @@
-<template>
+<template>  
   <div>
-    <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
-    <p><nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link></p>
-    <p><nuxt-link :to="path('/login')">{{ $t('links.login') }}</nuxt-link></p>
-    <p><nuxt-link :to="path('/register')">{{ $t('links.register') }}</nuxt-link></p>
-    <p><a href="#" v-on:click="logout">{{ $t('links.logout') }}</a></p>
-    <nuxt-link class="Header__Link" v-if="$i18n.locale === 'en'" :to="`/fr` + $route.fullPath" active-class="none" exact>
-      {{ $t('links.french') }}
-    </nuxt-link>
-    <nuxt-link class="Header__Link" v-else :to="$route.fullPath.replace(/^\/[^\/]+/, '')" active-class="none" exact>
-      {{ $t('links.english') }}
-    </nuxt-link>
+  <header>
+    <ul class="menu1">
+      <ul >
+      <li class="menu-items">burguer</li>
+      </ul>     
+        <a href="#">Logo</a>      
+    </ul>
+    <ul class="menu2">      
+      <li class="menu-items"><nuxt-link to="/annonces/create">Annonce create (private)</nuxt-link></li> 
+      <li class="menu-items"><nuxt-link to="/login">Connexion / Inscription</nuxt-link></li>  
+    </ul>
+  </header>
+    <p><nuxt-link to="/">HOME</nuxt-link></p>
+    <p><nuxt-link to="/annonces/create">Annonce create (private)</nuxt-link></p>
+    <p><nuxt-link to="/login">login</nuxt-link></p>
+    <p><nuxt-link to="/register">Register</nuxt-link></p>
+    <p><a href="#" v-on:click="logout">logout</a></p>
     <nuxt/>
   </div>
 </template>
@@ -47,7 +53,19 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+.menu2,
+.menu1{
+  width: 50%;
+  float:left;
+  display:block;
+  background:orange;
+}
 
+.menu-items{
+    float:left;
+    display:block;
+    width:33%;
+  }
 .button--green {
   display: inline-block;
   border-radius: 4px;
