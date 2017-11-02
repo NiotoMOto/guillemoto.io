@@ -7,13 +7,13 @@
       <form v-on:submit.prevent="login">
         <div>
           <v-input
-            id="username"
-            :value="username"
-            name="username"
+            id="email"
+            :value="email"
+            name="email"
             type="text"
             :changeHandler="updateField"
-            :placeholder="$t('inputs.login')"
-            :label="$t('inputs.login')"
+            :placeholder="$t('inputs.email')"
+            :label="$t('inputs.email')"
           />
           <v-input
             id="password"
@@ -39,17 +39,18 @@ export default {
     vInput
   },
   data: () => ({
-    username: '',
-    password: '',
-    loginSuccess: false,
-    loginFailed: false,
-    unauthorized: false,
     users: [],
     form: 'login'
   }),
   computed: {
     user () {
       return this.$store.state.user
+    },
+    email () {
+      return this.$store.state.forms.login.email
+    },
+    password () {
+      return this.$store.state.forms.login.password
     }
   },
   methods: {

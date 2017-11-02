@@ -1,11 +1,11 @@
 
 export const state = () => ({
   register: {
-    username: '',
-    password: ''
+    password: '',
+    email: ''
   },
   login: {
-    username: '',
+    email: '',
     password: ''
   }
 })
