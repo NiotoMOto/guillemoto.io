@@ -4,8 +4,12 @@ const config = require('../../config/server')
 const axios = require('axios')
 
 passport.use(new LocalStrategy(
-  function (username, password, done) {
-    axios.post(`${config.apiUrl}/custom/login/`, { username, password }).then(apiRes => {
+  {
+    usernameField: 'email',
+    passwordField: 'password'
+  },
+  function (email, password, done) {
+    axios.post(`${config.apiUrl}/custom/login/`, { email, password }).then(apiRes => {
       const { user, token } = apiRes.data
       done(null, { ...user, token })
     }).catch((err) => {
@@ -18,8 +22,14 @@ passport.use(new LocalStrategy(
 ))
 
 passport.use('local-signup', new LocalStrategy(
-  function (username, password, done) {
-    axios.post(`${config.apiUrl}/custom/register/`, { username, password }).then(apiRes => {
+  {
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
+  },
+  function (req, email, password, done) {
+    console.log(req)
+    axios.post(`${config.apiUrl}/custom/register/`, req.body).then(apiRes => {
       const { user, token } = apiRes.data
       done(null, { ...user, token })
     }).catch((err) => {

@@ -3,16 +3,20 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy
 const config = require('../../config/server')
 const axios = require('axios')
 
-function extractProfile (profile, token) {
+function extractProfile (profile) {
   let imageUrl = ''
+  let email = ''
   if (profile.photos && profile.photos.length) {
     imageUrl = profile.photos[0].value
+  }
+  if (profile.emails && profile.emails.length) {
+    email = profile.emails[0].value
   }
   return {
     googleId: profile.id,
     username: profile.displayName,
     image: imageUrl,
-    token
+    email
   }
 }
 

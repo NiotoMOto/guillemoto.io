@@ -20,6 +20,7 @@
     "inputs": {
         "firstname": "votre prénom",
         "lastname": "votre nom",
+        "username": "botre pseudo",
         "email": "Votre addrese email",
         "password": "votre mot de passe",
         "login": "votre identifiant"
