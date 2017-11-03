@@ -5,8 +5,8 @@ export const state = () => ({
     email: ''
   },
   login: {
-    email: '',
-    password: ''
+    password: '',
+    email: ''
   }
 })
 

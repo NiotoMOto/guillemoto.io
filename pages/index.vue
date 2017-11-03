@@ -48,9 +48,9 @@ export default {
     }
   },
   asyncData (context) {
-    return context.app.$axios.get('/annonces').then(res => (
-      { annonces: res.data }
-    ))
+    return context.app.$axios
+      .get('/annonces')
+      .then(res => ({ annonces: res.data }))
   }
 }
 </script>
