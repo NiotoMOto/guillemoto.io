@@ -42,15 +42,15 @@ export default {
   }),
   methods: {
     refreshAnnonces: function (e) {
-      this.$axios.get('/annonces').then(res => {
+      this.$axios.get('annonces').then(res => {
         this.annonces = res.data
       })
     }
   },
   asyncData (context) {
-    return context.app.$axios
-      .get('/annonces')
-      .then(res => ({ annonces: res.data }))
+    return context.app.$axios.get('annonces').then(res => (
+      { annonces: res.data }
+    ))
   }
 }
 </script>
