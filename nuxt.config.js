@@ -6,7 +6,7 @@ module.exports = {
   /*
   ** Headers of the page
   */
-  dev: true,
+  dev: false,
   head: {
     title: 'annbouje',
     meta: [
