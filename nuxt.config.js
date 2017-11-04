@@ -41,7 +41,7 @@ module.exports = {
           return config
         },
         baseURL: config.apiUrl,
-        browserBaseURL: config.apiUrl
+        browserBaseURL: config.browserApiUrl
       }
     ]
   ],
