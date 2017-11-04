@@ -3,7 +3,7 @@
     <div>
       <logo/>
       <h1 class="title">
-        annbouje
+        annbouje codeship
       </h1>
       <h2 class="subtitle">
         Ann bouje !
