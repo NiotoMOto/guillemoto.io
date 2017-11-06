@@ -1,19 +1,24 @@
 <template>  
   <div>
-  <header>
-    <ul class="menu1">
+  <header class="bloc-head">
+    <ul class="menu menu-left">
       <ul >
       <li class="menu-items">burguer</li>
+       <li class="menu-items">
+         <a class="logo link" href="#">logo</a>
+      </li>
       </ul>     
-        <a href="#">Logo</a>      
+             
     </ul>
-    <ul class="menu2">      
-      <li class="menu-items"></li>
-        <nuxt-link to="/annonces/create">Annonce create (private)</nuxt-link>
-      </li> 
-      <li class="menu-items"><nuxt-link to="/login">Connexion / Inscription</nuxt-link></li>  
-    </ul>
-  </header>
+    <ul class="menu menu-right">
+      <li class="menu-items menu-item-login">
+        <nuxt-link to="/login">{{ $t('links.login') }}</nuxt-link>
+      </li>      
+      <li class="menu-items menu-item-create-annonce">
+        <nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link>
+      </li>         
+    </ul>    
+  </header>  
     <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
     <p><nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link></p>
     <p><a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }}</a></p>
@@ -89,19 +94,59 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-.menu2,
-.menu1{
+.menu-right,
+.menu-left{
   width: 50%;
   float:left;
   display:block;
-  background:orange;
+}
+.menu-right{
+  .menu-items{       
+    width: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+}
+
+// .logo {
+//   background: url(../images/logo.png);
+//   display: block;
+//   width: 100%;
+//   height: auto;
+// }
+
+.menu-item-create-annonce{
+  background:#41b883;
 }
 
 .menu-items{
     float:left;
     display:block;
     width:33%;
+    padding: 22px 0;
+    a{
+      text-decoration: none;
+      color: #fff;
+      &:active,&:visited,&:focus {
+        //color:inherit;
+      }
+    }
   }
+.menu-item-login{
+  a{
+    color: #333;
+  }
+}
+
+.bloc-head{
+    border-bottom: 1px solid #ccc;
+    display: block;
+    width: 100%;
+    height: 60px;
+}
+
+
 .button--green {
   display: inline-block;
   border-radius: 4px;
