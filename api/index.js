@@ -1,16 +1,17 @@
 const express = require('express')
+const morgan = require('morgan')
+const passport = require('passport')
+const config = require('../config')
 
 // Create express router
 const router = express.Router()
-var morgan = require('morgan')
-const passport = require('passport')
 require('./auth/facebook')
 require('./auth/google')
 require('./auth/local')
 
 // Transform req & res to have the same API as express
 // So we can use res.status() & res.json()
-var app = express()
+const app = express()
 
 router.use((req, res, next) => {
   Object.setPrototypeOf(req, app.request)

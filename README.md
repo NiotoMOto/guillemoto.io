@@ -9,8 +9,8 @@
 $ npm install # Or yarn install
 
 #add conf
-cp confg/index-sample.js config/index.js
-cp confg/server-sample.js config/server.js
+cp config/index-sample.js config/index.js
+cp config/server-sample.js config/server.js
 
 # serve with hot reload at localhost:3000 with dev: true in nuxt.config.js
 $ npm start

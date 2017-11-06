@@ -1,12 +1,12 @@
 const bodyParser = require('body-parser')
 const session = require('express-session')
-const config = require('./config/server')
+const config = require('./config/')
 
 module.exports = {
   /*
   ** Headers of the page
   */
-  dev: false,
+  dev: process.env.NODE_ENV !== 'production',
   head: {
     title: 'annbouje',
     meta: [

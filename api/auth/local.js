@@ -1,6 +1,6 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-const config = require('../../config/server')
+const config = require('../../config/')
 const axios = require('axios')
 
 passport.use(new LocalStrategy(

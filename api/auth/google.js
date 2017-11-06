@@ -1,6 +1,6 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
-const config = require('../../config/server')
+const config = require('../../config/')
 const axios = require('axios')
 
 function extractProfile (profile) {

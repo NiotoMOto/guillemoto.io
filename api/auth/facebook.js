@@ -1,6 +1,6 @@
 const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
-const config = require('../../config/server')
+const config = require('../../config/')
 const axios = require('axios')
 
 
