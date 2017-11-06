@@ -20,11 +20,11 @@ function extractProfile (profile) {
     email
   }
 }
-
+const { clientID, clientSecret } = config.social.facebook
 passport.use(new FacebookStrategy({
-  clientID: '1688818377829789',
-  clientSecret: '825d6de419b151792d1e4afd283460cc',
-  callbackURL: 'http://localhost:3000/api/auth/facebook/callback',
+  clientID,
+  clientSecret,
+  callbackURL: `${config.appUrl}/api/auth/facebook/callback`,
   profileFields: ['id', 'emails', 'name', 'displayName']
 }, function (accessToken, refreshToken, profile, done) {
   // Extract the minimal profile information we need from the profile object
