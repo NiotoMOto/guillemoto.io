@@ -4,22 +4,27 @@
     <ul class="menu menu-left">
       <ul >
       <li class="menu-items">burguer</li>
-       <li class="menu-items">
-         <a class="logo link" href="#">logo</a>
+       <li class="menu-items"> 
+       <!--img src="/static/images/logo.png"-->     
+         <a class="logo link" href="#" alt="logo"></a>
       </li>
       </ul>     
              
     </ul>
     <ul class="menu menu-right">
       <li class="menu-items menu-item-login">
-        <nuxt-link to="/login">{{ $t('links.login') }}</nuxt-link>
+       <a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }}</a>
       </li>      
       <li class="menu-items menu-item-create-annonce">
         <nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link>
       </li>         
     </ul>    
-  </header>  
-    <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
+  </header>
+  <div id="content" class="content-top">
+      <img class="slider" src="~/assets/images/slide1.jpg">
+  </div>
+  <div id="content" class="content-bottom">
+   <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
     <p><nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link></p>
     <p><a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }}</a></p>
     <p><a href="#" v-on:click="toggleRegisterModal">{{ $t('links.register') }}</a></p>
@@ -38,6 +43,7 @@
     </Modal>
     {{ showLoginModal }}
     <nuxt/>
+  </div>   
   </div>
 </template>
 
@@ -108,23 +114,43 @@ html {
     font-size: 14px;
   }
 }
+.content-top {
+  display: inline-block;
+  background: rebeccapurple;
+  width: 100%;
+  height: auto;
+  position: relative;
+  .slider{
+    width: 100%;
+    height: 100%;
+    display: inline-block
+  }
+}
+.content-bottom { 
+  padding: 0 50px;
+}
 
-// .logo {
-//   background: url(../images/logo.png);
-//   display: block;
-//   width: 100%;
-//   height: auto;
-// }
+.logo { 
+  background: url(/assets/images/logo.png) no-repeat;
+  display: inline-block;
+  width: 119px;
+  height: 60px;
+  background-size: 100%;
+  position: absolute;
+  top: 9px;
+} 
 
 .menu-item-create-annonce{
   background:#41b883;
 }
 
 .menu-items{
-    float:left;
-    display:block;
-    width:33%;
-    padding: 22px 0;
+    float: left;
+    display: inline-block;
+    width: 20%;
+    padding: 20px 0;
+    vertical-align: middle;
+    height: 60px;
     a{
       text-decoration: none;
       color: #fff;
