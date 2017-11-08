@@ -21,6 +21,14 @@
     </ul>    
   </header>
   <div id="content" class="content-top">
+      <div class="wrapper-content-slider">
+         <div class="content-slider">
+           <h1>
+             cs
+           </h1>
+           <span>blblbalalalala</span>
+        </div> 
+      </div>
       <img class="slider" src="~/assets/images/slide1.jpg">
   </div>
   <div id="content" class="content-bottom">
@@ -116,7 +124,6 @@ html {
 }
 .content-top {
   display: inline-block;
-  background: rebeccapurple;
   width: 100%;
   height: auto;
   position: relative;
@@ -124,6 +131,21 @@ html {
     width: 100%;
     height: 100%;
     display: inline-block
+  }
+}
+
+.wrapper-content-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  .content-slider {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    top: calc(50% - 20px);
+    position: relative;  
+    color: #fff;
   }
 }
 .content-bottom { 
