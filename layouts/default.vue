@@ -1,15 +1,11 @@
 <template>  
   <div>
   <header class="bloc-head">
-    <ul class="menu menu-left">
-      <ul >
-      <li class="menu-items">burguer</li>
-       <li class="menu-items"> 
-       <!--img src="/static/images/logo.png"-->     
+    <ul class="menu menu-left">      
+      <li class="menu-items burguer-menu">Menu</li>
+       <li class="menu-items cs-logo">            
          <a class="logo link" href="#" alt="logo"></a>
-      </li>
-      </ul>     
-             
+      </li>            
     </ul>
     <ul class="menu menu-right">
       <li class="menu-items menu-item-login">
@@ -181,6 +177,33 @@ html {
       }
     }
   }
+.auth-facebook{  
+  .cs-link {
+    color: #fff;
+    text-decoration: none;
+    background: #3b5998;
+    padding: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    display: inline-block;
+  }
+}
+.auth-google{ 
+  .cs-link {
+    color: #fff;
+    text-decoration: none;
+    background: #DC4A38;
+    padding: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+.burguer-menu {
+  margin-right: 26px;
+  border-right: 1px solid #ccc;
+}
 .menu-item-login{
   a{
     color: #333;
@@ -188,10 +211,12 @@ html {
 }
 
 .bloc-head{
-    border-bottom: 1px solid #ccc;
-    display: block;
+    border-bottom: 1px solid #ccc;    
     width: 100%;
     height: 60px;
+    position: fixed;
+    z-index: 9;
+    background: #fff;
 }
 
 
