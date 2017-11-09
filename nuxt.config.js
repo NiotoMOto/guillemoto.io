@@ -1,6 +1,8 @@
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const config = require('./config/')
+const WebfontPlugin = require('webpack-webfont').default
+const path = require('path')
 
 module.exports = {
   /*
@@ -62,6 +64,19 @@ module.exports = {
         })
       }
     },
+    plugins: [
+      new WebfontPlugin({
+        files: path.resolve(__dirname, './fixtures/svg-icons/**/*.svg'),
+        css: true,
+        template: 'scss',
+        fontName: 'cs-font',
+        cssTemplateFontPath: '~/assets/css/fonts/',
+        dest: {
+          fontsDir: path.resolve(__dirname, './assets/css/fonts'),
+          stylesDir: path.resolve(__dirname, './assets/css/fonts')
+        }
+      })
+    ],
     vendor: ['axios', 'vue-i18n']
   },
   serverMiddleware: [
