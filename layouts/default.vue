@@ -1,20 +1,34 @@
 <template>  
   <div>
-  <header>
-    <ul class="menu1">
-      <ul >
-      <li class="menu-items">burguer</li>
-      </ul>     
-        <a href="#">Logo</a>      
+  <header class="bloc-head">
+    <ul class="menu menu-left">      
+      <li class="menu-items burguer-menu">Menu</li>
+       <li class="menu-items cs-logo">            
+         <a class="logo link" href="#" alt="logo"></a>
+      </li>            
     </ul>
-    <ul class="menu2">      
-      <li class="menu-items"></li>
-        <nuxt-link to="/annonces/create">Annonce create (private)</nuxt-link>
-      </li> 
-      <li class="menu-items"><nuxt-link to="/login">Connexion / Inscription</nuxt-link></li>  
-    </ul>
+    <ul class="menu menu-right">
+      <li class="menu-items menu-item-login">
+       <a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }}</a>
+      </li>      
+      <li class="menu-items menu-item-create-annonce">
+        <nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link>
+      </li>         
+    </ul>    
   </header>
-    <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
+  <div id="content" class="content-top">
+      <div class="wrapper-content-slider">
+         <div class="content-slider">
+           <h1>
+             cs
+           </h1>
+           <span>blblbalalalala</span>
+        </div> 
+      </div>
+      <img class="slider" src="~/assets/images/slide1.jpg">
+  </div>
+  <div id="content" class="content-bottom">
+   <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
     <p><nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link></p>
     <p><a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }}</a></p>
     <p><a href="#" v-on:click="toggleRegisterModal">{{ $t('links.register') }}</a></p>
@@ -33,6 +47,7 @@
     </Modal>
     {{ showLoginModal }}
     <nuxt/>
+  </div>   
   </div>
 </template>
 
@@ -89,19 +104,122 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-.menu2,
-.menu1{
+.menu-right,
+.menu-left{
   width: 50%;
   float:left;
   display:block;
-  background:orange;
+}
+.menu-right{
+  .menu-items{       
+    width: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+}
+.content-top {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  .slider{
+    width: 100%;
+    height: 100%;
+    display: inline-block
+  }
+}
+
+.wrapper-content-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  .content-slider {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    top: calc(50% - 20px);
+    position: relative;  
+    color: #fff;
+  }
+}
+.content-bottom { 
+  padding: 0 50px;
+}
+
+.logo { 
+  background: url(/assets/images/logo.png) no-repeat;
+  display: inline-block;
+  width: 119px;
+  height: 60px;
+  background-size: 100%;
+  position: absolute;
+  top: 9px;
+} 
+
+.menu-item-create-annonce{
+  background:#41b883;
 }
 
 .menu-items{
-    float:left;
-    display:block;
-    width:33%;
+    float: left;
+    display: inline-block;
+    width: 20%;
+    padding: 20px 0;
+    vertical-align: middle;
+    height: 60px;
+    a{
+      text-decoration: none;
+      color: #fff;
+      &:active,&:visited,&:focus {
+        //color:inherit;
+      }
+    }
   }
+.auth-facebook{  
+  .cs-link {
+    color: #fff;
+    text-decoration: none;
+    background: #3b5998;
+    padding: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    display: inline-block;
+  }
+}
+.auth-google{ 
+  .cs-link {
+    color: #fff;
+    text-decoration: none;
+    background: #DC4A38;
+    padding: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+.burguer-menu {
+  margin-right: 26px;
+  border-right: 1px solid #ccc;
+}
+.menu-item-login{
+  a{
+    color: #333;
+  }
+}
+
+.bloc-head{
+    border-bottom: 1px solid #ccc;    
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    z-index: 9;
+    background: #fff;
+}
+
+
 .button--green {
   display: inline-block;
   border-radius: 4px;

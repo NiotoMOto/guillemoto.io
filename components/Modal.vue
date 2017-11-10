@@ -23,13 +23,28 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .modal {
     position: fixed;
     top: 70px;
     right: 300px;
     z-index: 2;
-    background: #41b883;
+    background: #fff;
     height: 350px;
+    width: 400px;
+    padding: 25px;
+  }
+
+  .auth-wrapper{
+    width: 100%;
+  } 
+
+  .field {
+    input{
+      width: 100%;
+    }
+    label{
+      width: 100%;
+    }
   }
 </style>

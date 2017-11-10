@@ -1,11 +1,11 @@
 <template>
-  <section>
+  <section class="auth-wrapper r">
     <h1>{{ $t('login.login') }}</h1>
-    <div v-if="!user">
-      <p class="cs-font cs-font-facebook"><a href="/api/auth/facebook">facebook</a></p>
-      <p><a href="/api/auth/google">google</a></p>
+    <div  v-if="!user">
+      <p class="auth-facebook cs-font cs-font-facebook"><a class="cs-link" href="/api/auth/facebook">facebook</a></p>
+      <p class="auth-google"><a class="cs-link" href="/api/auth/google">google</a></p>
       <form v-on:submit.prevent="login">
-        <div>
+        <div class="field">
           <v-input
             id="email"
             :value="email"
