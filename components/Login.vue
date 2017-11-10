@@ -2,7 +2,7 @@
   <section>
     <h1>{{ $t('login.login') }}</h1>
     <div v-if="!user">
-      <p><a href="/api/auth/facebook">facebook</a></p>
+      <p class="cs-font cs-font-facebook"><a href="/api/auth/facebook">facebook</a></p>
       <p><a href="/api/auth/google">google</a></p>
       <form v-on:submit.prevent="login">
         <div>
