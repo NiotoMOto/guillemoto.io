@@ -1,53 +1,43 @@
 <template>  
   <div>
-  <header class="bloc-head">
-    <ul class="menu menu-left">      
-      <li class="menu-items burguer-menu">Menu</li>
-       <li class="menu-items cs-logo">            
-         <a class="logo link" href="#" alt="logo"></a>
-      </li>            
-    </ul>
-    <ul class="menu menu-right">
-      <li class="menu-items menu-item-login">
-       <a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }}</a>
-      </li>      
-      <li class="menu-items menu-item-create-annonce">
-        <nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link>
-      </li>         
-    </ul>    
-  </header>
-  <div id="content" class="content-top">
-      <div class="wrapper-content-slider">
-         <div class="content-slider">
-           <h1>
-             cs
-           </h1>
-           <span>blblbalalalala</span>
-        </div> 
-      </div>
-      <img class="slider" src="~/assets/images/slide1.jpg">
-  </div>
-  <div id="content" class="content-bottom">
-   <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
-    <p><nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link></p>
-    <p><a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }}</a></p>
-    <p><a href="#" v-on:click="toggleRegisterModal">{{ $t('links.register') }}</a></p>
-    <p><a href="#" v-on:click="logout">{{ $t('links.logout') }}</a></p>
-    <nuxt-link class="Header__Link" v-if="$i18n.locale === 'en'" :to="`/fr` + $route.fullPath" active-class="none" exact>
-      {{ $t('links.french') }}
-    </nuxt-link>
-    <nuxt-link class="Header__Link" v-else :to="$route.fullPath.replace(/^\/[^\/]+/, '')" active-class="none" exact>
-      {{ $t('links.english') }}
-    </nuxt-link>
-    <Modal :show="showLoginModal" :toggleModal="toggleLoginModal">
-      <Login />
-    </Modal>
-    <Modal :show="showRegisterModal" :toggleModal="toggleRegisterModal">
-      REGISTER
-    </Modal>
-    {{ showLoginModal }}
+    <header class="bloc-head">
+      <ul class="menu menu-left">      
+        <li class="menu-items burguer-menu">Menu</li>
+        <li class="menu-items cs-logo">            
+          <a class="logo link" href="#" alt="logo"></a>
+        </li>            
+      </ul>
+      <ul class="menu menu-right">
+        <li class="menu-items menu-item-login">
+        <a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }}</a>
+        </li>      
+        <li class="menu-items menu-item-create-annonce">
+          <nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link>
+        </li>         
+      </ul>    
+    </header>
+
+    <div id="content" class="content-bottom">
+      <!-- <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
+      <p><nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link></p>
+      <p><a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }}</a></p>
+      <p><a href="#" v-on:click="toggleRegisterModal">{{ $t('links.register') }}</a></p>
+      <p><a href="#" v-on:click="logout">{{ $t('links.logout') }}</a></p>
+      <nuxt-link class="Header__Link" v-if="$i18n.locale === 'en'" :to="`/fr` + $route.fullPath" active-class="none" exact>
+        {{ $t('links.french') }}
+      </nuxt-link>
+      <nuxt-link class="Header__Link" v-else :to="$route.fullPath.replace(/^\/[^\/]+/, '')" active-class="none" exact>
+        {{ $t('links.english') }}
+      </nuxt-link> -->
+      <Modal :show="showLoginModal" :toggleModal="toggleLoginModal">
+        <Login />
+      </Modal>
+      <Modal :show="showRegisterModal" :toggleModal="toggleRegisterModal">
+        REGISTER
+      </Modal>
+      {{ showLoginModal }}
+    </div>
     <nuxt/>
-  </div>   
   </div>
 </template>
 
