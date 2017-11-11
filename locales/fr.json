@@ -23,6 +23,12 @@
         "username": "botre pseudo",
         "email": "Votre addrese email",
         "password": "votre mot de passe",
-        "login": "votre identifiant"
+        "login": "votre identifiant",
+        "sport": "sport",
+        "city": "ville",
+        "date": "date"
+    },
+    "buttons": {
+        "search": "rechercher"
     }
 }

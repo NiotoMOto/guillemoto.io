@@ -7,6 +7,11 @@ export const state = () => ({
   login: {
     password: '',
     email: ''
+  },
+  search: {
+    sport: '',
+    city: '',
+    date: ''
   }
 })
 

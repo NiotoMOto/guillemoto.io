@@ -23,6 +23,12 @@
         "username": "your username",
         "email": "your email address",
         "password": "your password",
-        "login": "your ID"
+        "login": "your ID",
+        "sport": "sport",
+        "city": "city",
+        "date": "date"
+    },
+    "buttons": {
+        "search": "search"
     }
 }
