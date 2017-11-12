@@ -39,6 +39,8 @@
       font-size: 13px;
       text-transform: uppercase;
       border: 1px solid #d3d3d3;
+      border-radius: 36px;
+      overflow: hidden;
     }
     
 </style>

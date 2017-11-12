@@ -3,11 +3,12 @@
     <span class="block-title">{{ $t('login.login') }}</span>
     <div  v-if="!user">
       <p class="auth auth-facebook">        
-        <a class="cs-link" href="/api/auth/facebook"> <i class="cs-font cs-font-facebook"></i>facebook</a>
+        <a class="cs-link" href="/api/auth/facebook"> <i class="cs-font cs-font-facebook"></i>Se conncecter avec son compte facebook</a>
         </p>
       <p class="auth auth-google">
-        <a class="cs-link" href="/api/auth/google"><i class="cs-font cs-font-google"></i>google</a>
-        </p>
+        <a class="cs-link" href="/api/auth/google"><i class="cs-font cs-font-google"></i>Se conncecter avec son compte google</a>
+      </p>
+      <p class="cs-choice">- ou -</p>
       <form v-on:submit.prevent="login">
         <div class="field field-login">
           <v-input
