@@ -30,5 +30,11 @@
     },
     "buttons": {
         "search": "search"
+    },
+    "sports": {
+        "COURSE_PIED": "running",
+        "FOOT": "football",
+        "BASKET": "basket-ball",
+        "VELO": "bike"
     }
 }
