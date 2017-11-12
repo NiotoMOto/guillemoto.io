@@ -24,7 +24,7 @@
         type="date"
         :placeholder="$t('inputs.date')"
       />
-      <button type="button">
+      <button class="cta cta-search" type="button">
         {{ $t('buttons.search') }}
       </button>
   </div>
@@ -59,6 +59,22 @@ export default {
 <style lang="scss" scoped>
 .cs-search {
   background: #fff;
+  opacity: .97;
+  padding: 16px;
+  margin-top: 20px;
+  width: 80%;
+  margin: 0 auto;
 }
+.cta {
+  width: 26%;
+  margin-left: 8px;
+  height: 45px;
+  background: #41b883;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 1px;
+}
+
 </style>
 
