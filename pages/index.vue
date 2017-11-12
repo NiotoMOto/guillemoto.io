@@ -3,10 +3,10 @@
     <div id="content" class="content-top">
         <div class="wrapper-content-slider">
           <div class="content-slider">
-            <h1>
-              cs
-            </h1>
-            <span>blblbalalalala</span>
+            <div class="cs-title">
+              <h1>Site de rencontre pour les sportifs</h1>
+                <span>Trouver un partenaire pour une séance de sport à côté de chez vous</span>
+            </div>
             <SearchComponent />
           </div> 
         </div>

@@ -2,14 +2,15 @@
   <div>
     <header class="bloc-head">
       <ul class="menu menu-left">      
-        <li class="menu-items burguer-menu">Menu</li>
+        <li class="menu-items burguer-menu"><i class="cs-font cs-font-burger"></i>Menu</li>
+          
         <li class="menu-items cs-logo">            
           <a class="logo link" href="#" alt="logo"></a>
         </li>            
       </ul>
       <ul class="menu menu-right">
         <li class="menu-items menu-item-login">
-        <a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }}</a>
+        <a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }} / create account </a>
         </li>      
         <li class="menu-items menu-item-create-annonce">
           <nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link>
@@ -129,7 +130,7 @@ html {
     width: 80%;
     margin: 0 auto;
     text-align: center;
-    top: calc(50% - 20px);
+    top: calc(50% - 70px);
     position: relative;  
     color: #fff;
   }
@@ -167,6 +168,15 @@ html {
       }
     }
   }
+
+  .menu.menu-right {
+    float: right;
+    width: 40%;
+    .menu-item-login{
+      text-align: right;
+      padding-right: 16px;
+    }
+}
 .auth-facebook{  
   .cs-link {
     color: #fff;
@@ -193,11 +203,19 @@ html {
 .burguer-menu {
   margin-right: 26px;
   border-right: 1px solid #ccc;
+  color: #494848;
+  text-transform: uppercase;
+  font-weight: 666;
 }
 .menu-item-login{
   a{
-    color: #333;
+    color: #41b883;
+    font-weight: 600;
   }
+}
+
+.cs-font-burger {
+    line-height: 23px;
 }
 
 .bloc-head{
@@ -209,6 +227,10 @@ html {
     background: #fff;
 }
 
+.cs-title{
+  margin-bottom: 25px; 
+  
+}
 
 .button--green {
   display: inline-block;

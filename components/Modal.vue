@@ -1,7 +1,7 @@
 <template>
   <div v-if="show" class="modal">
-    <div>
-      <a href="#" v-on:click="toggleModal">Fermer</a>
+    <div class="btn close-btn">
+      <a href="#" v-on:click="toggleModal"><i class="cs-font cs-font-close"></i></a>
     </div>
     <slot/>
   </div>
@@ -30,9 +30,10 @@
     right: 300px;
     z-index: 2;
     background: #fff;
-    height: 350px;
+    height: 395px;
     width: 400px;
-    padding: 25px;
+    padding: 16px;
+    border: 1px solid #d3d3d3;
   }
 
   .auth-wrapper{
@@ -46,5 +47,54 @@
     label{
       width: 100%;
     }
+  }
+
+  .block-title{
+    font-size: 16px;
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+
+  .auth{
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  .cs-font-close{
+    margin-right: 0;    
+  }
+
+  .close-btn {
+    position: absolute;
+    right: -52px;
+    background: #41b883;    
+    width: 50px;
+    height: 50px;
+    top: -1px;
+    a {
+      color: #fff;
+      display: inline-block;
+      padding: 12px;
+    }
+  }
+
+  .field-login{
+    .cs-input-label{
+      padding: 0;
+      margin-bottom: 16px;
+      span{
+        display: none;
+      }
+    }
+  }
+
+  .cta-login{
+    width: 100%;
+    background: #41b883;
+    border: none;
+    color: #fff;
+    padding: 16px;
+    text-transform: uppercase;   
+    letter-spacing: 1px;
   }
 </style>

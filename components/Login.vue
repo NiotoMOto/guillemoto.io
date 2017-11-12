@@ -1,11 +1,15 @@
 <template>
   <section class="auth-wrapper r">
-    <h1>{{ $t('login.login') }}</h1>
+    <span class="block-title">{{ $t('login.login') }}</span>
     <div  v-if="!user">
-      <p class="auth-facebook cs-font cs-font-facebook"><a class="cs-link" href="/api/auth/facebook">facebook</a></p>
-      <p class="auth-google"><a class="cs-link" href="/api/auth/google">google</a></p>
+      <p class="auth auth-facebook">        
+        <a class="cs-link" href="/api/auth/facebook"> <i class="cs-font cs-font-facebook"></i>facebook</a>
+        </p>
+      <p class="auth auth-google">
+        <a class="cs-link" href="/api/auth/google"><i class="cs-font cs-font-google"></i>google</a>
+        </p>
       <form v-on:submit.prevent="login">
-        <div class="field">
+        <div class="field field-login">
           <v-input
             id="email"
             :value="email"
@@ -25,7 +29,7 @@
             :label="$t('inputs.password')"
           />
         </div>
-        <button type="submit">{{ $t('login.login') }}</button>
+        <button class="cta cta-login" type="submit">{{ $t('login.login') }}</button>
       </form>
     </div>
   </section>
