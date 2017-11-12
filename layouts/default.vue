@@ -146,7 +146,7 @@ html {
   height: 60px;
   background-size: 100%;
   position: absolute;
-  top: 9px;
+  top: 0;
 } 
 
 .menu-item-create-annonce{
@@ -160,6 +160,7 @@ html {
     padding: 20px 0;
     vertical-align: middle;
     height: 60px;
+    position: relative;
     a{
       text-decoration: none;
       color: #fff;
@@ -182,10 +183,12 @@ html {
     color: #fff;
     text-decoration: none;
     background: #3b5998;
-    padding: 16px;
+    padding: 10px;
     margin-bottom: 16px;
     width: 100%;
     display: inline-block;
+    border-radius: 36px;
+    overflow: hidden;
   }
 }
 .auth-google{ 
@@ -193,10 +196,12 @@ html {
     color: #fff;
     text-decoration: none;
     background: #DC4A38;
-    padding: 16px;
+    padding: 10px;
     margin-bottom: 16px;
     width: 100%;
     display: inline-block;
+    border-radius: 36px;
+    overflow: hidden;
   }
 }
 
@@ -206,6 +211,7 @@ html {
   color: #494848;
   text-transform: uppercase;
   font-weight: 666;
+  width: 23%;
 }
 .menu-item-login{
   a{
@@ -228,8 +234,16 @@ html {
 }
 
 .cs-title{
-  margin-bottom: 25px; 
-  
+  margin-bottom: 25px;   
+}
+
+.menu-left{
+  padding-left: 16px;
+}
+.cs-font{
+  font-size: 26px;
+  margin-right: 16px;
+  vertical-align: middle;
 }
 
 .button--green {

@@ -62,8 +62,10 @@ export default {
   opacity: .97;
   padding: 16px;
   margin-top: 20px;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
+  border-radius: 36px;
+  overflow: hidden;
 }
 .cta {
   width: 26%;
@@ -74,6 +76,8 @@ export default {
   text-transform: uppercase;
   border: none;
   letter-spacing: 1px;
+  border-radius: 36px;
+  overflow: hidden;
 }
 
 </style>

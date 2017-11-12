@@ -30,7 +30,7 @@
     right: 300px;
     z-index: 2;
     background: #fff;
-    height: 395px;
+    height: 414px;
     width: 400px;
     padding: 16px;
     border: 1px solid #d3d3d3;
@@ -53,11 +53,20 @@
     font-size: 16px;
     margin-bottom: 16px;
     display: inline-block;
+    font-weight: bold;
+    font-size: 26px;
+    color: #494848;
   }
 
   .auth{
-    font-size: 16px;
+    font-size: 12px;
     text-transform: uppercase;
+  }
+
+  .cs-choice{
+    text-align: center;
+    margin-bottom: 16px;
+    color: #494848;
   }
 
   .cs-font-close{
@@ -96,5 +105,7 @@
     padding: 16px;
     text-transform: uppercase;   
     letter-spacing: 1px;
+    border-radius: 36px;
+    overflow: hidden;
   }
 </style>
