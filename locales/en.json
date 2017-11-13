@@ -3,10 +3,14 @@
         "title": "Welcome"
     },
     "login": {
-        "login": "login"
+        "login": "login",
+        "login_facebook": "login whith facebook account",
+        "login_google": "login with google account"
     },
     "register" : {
-        "register": "register"
+        "register": "register",
+        "register_facebook": "ccc whith facebook account",
+        "register_google": "register with google account"
     },
     "links" : {
         "french": "french",
