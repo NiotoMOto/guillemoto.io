@@ -28,6 +28,7 @@ export const actions = {
     try {
       const { data } = await axios.post('/api/login', state.forms.login)
       commit('SET_USER', data)
+      commit('ui/toggleModal', { modal: 'login' })
     } catch (error) {
       if (error.response && error.response.status === 401) {
         throw new Error('Bad credentials')
