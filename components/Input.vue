@@ -38,9 +38,7 @@
       padding: 0 10px;
       font-size: 13px;
       text-transform: uppercase;
-      border: 1px solid #d3d3d3;
-      border-radius: 36px;
-      overflow: hidden;
+      border: 1px solid #d3d3d3;      
     }
     
 </style>
