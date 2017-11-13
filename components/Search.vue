@@ -63,9 +63,7 @@ export default {
   padding: 16px;
   margin-top: 20px;
   width: 90%;
-  margin: 0 auto;
-  border-radius: 36px;
-  overflow: hidden;
+  margin: 0 auto;  
 }
 .cta {
   width: 26%;
@@ -75,9 +73,7 @@ export default {
   color: #fff;
   text-transform: uppercase;
   border: none;
-  letter-spacing: 1px;
-  border-radius: 36px;
-  overflow: hidden;
+  letter-spacing: 1px;  
 }
 
 </style>

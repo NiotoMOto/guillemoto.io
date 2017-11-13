@@ -104,8 +104,6 @@
     color: #fff;
     padding: 16px;
     text-transform: uppercase;   
-    letter-spacing: 1px;
-    border-radius: 36px;
-    overflow: hidden;
+    letter-spacing: 1px;    
   }
 </style>

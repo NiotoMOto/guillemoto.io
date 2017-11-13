@@ -202,9 +202,7 @@ html {
     padding: 10px;
     margin-bottom: 16px;
     width: 100%;
-    display: inline-block;
-    border-radius: 36px;
-    overflow: hidden;
+    display: inline-block;    
   }
 }
 .auth-google{ 
@@ -215,9 +213,7 @@ html {
     padding: 10px;
     margin-bottom: 16px;
     width: 100%;
-    display: inline-block;
-    border-radius: 36px;
-    overflow: hidden;
+    display: inline-block;    
   }
 }
 
