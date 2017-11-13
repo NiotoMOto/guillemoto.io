@@ -35,7 +35,6 @@ export default {
       this.$emit('input', this.$data.selected)
     },
     isSelected (sport) {
-      console.log(this.$data.selected)
       return _.includes(this.$data.selected, sport._id)
     }
   }

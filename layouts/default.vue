@@ -10,7 +10,24 @@
       </ul>
       <ul class="menu menu-right">
         <li class="menu-items menu-item-login">
-        <a href="#" v-on:click="toggleLoginModal">{{ $t('links.login') }} / create account </a>
+          <a
+            v-if="!user"
+            href="#"
+            v-on:click="toggleLoginModal">
+              {{ $t('links.login') }} / create account
+          </a>
+          <nuxt-link
+            v-if="user"
+            :to="path('/profile')">
+            {{ user.username }}
+          </nuxt-link>
+          <a 
+            v-if="user"
+            href="#"
+            v-on:click="logout"
+          >
+            Déconnecter
+          </a>
         </li>      
         <li class="menu-items menu-item-create-annonce">
           <nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link>
@@ -57,6 +74,9 @@
       },
       showRegisterModal () {
         return this.$store.state.ui.modals.register
+      },
+      user () {
+        return this.$store.state.user
       }
     },
     methods: {

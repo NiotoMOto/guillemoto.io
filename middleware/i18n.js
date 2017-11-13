@@ -4,7 +4,6 @@ export default function ({ isHMR, app, store, route, params, error, redirect }) 
   // Get locale from params
   const localRgxResult = route.path.match(/\/(\w\w)\//)
   const locale = localRgxResult && localRgxResult[1] ? route.path.match(/\/(\w\w)\//)[1] : 'en'
-  console.log(locale)
   if (store.state.locales.indexOf(locale) === -1) {
     return error({ message: 'This page could not be found.', statusCode: 404 })
   }
