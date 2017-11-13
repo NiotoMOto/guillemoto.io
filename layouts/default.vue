@@ -48,25 +48,21 @@
         {{ $t('links.english') }}
       </nuxt-link> -->
       <Modal :show="showLoginModal" :toggleModal="toggleLoginModal">
-        <Login />
+        <LoginOrRegister />
       </Modal>
-      <Modal :show="showRegisterModal" :toggleModal="toggleRegisterModal">
-        REGISTER
-      </Modal>
-      {{ showLoginModal }}
     </div>
     <nuxt/>
   </div>
 </template>
 
 <script>
-  import Login from '~/components/Login.vue'
+  import LoginOrRegister from '~/components/LoginOrRegister.vue'
   import Logo from '~/components/Logo.vue'
   import Modal from '~/components/Modal.vue'
 
   export default {
     components: {
-      Login, Logo, Modal
+      LoginOrRegister, Logo, Modal
     },
     computed: {
       showLoginModal () {
