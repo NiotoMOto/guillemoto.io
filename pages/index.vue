@@ -12,6 +12,14 @@
         </div>
         <img class="slider" src="~/assets/images/slide1.jpg">
     </div>
+
+    <div class="search-result">
+      <div class="search-result_item" v-for="annonce in annonces" :key="annonce._id">
+        <div>{{ annonce.creator.firstName }} {{ annonce.creator.lastName }}</div>
+        <div>{{ annonce.sport.name }}</div>
+        <div>{{ annonce.name }}</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,11 +33,11 @@ export default {
   computed: {
     user () {
       return this.$store.state.user
+    },
+    annonces () {
+      return this.$store.state.annonces
     }
   },
-  data: () => ({
-    annonces: []
-  }),
   methods: {
     refreshAnnonces: function (e) {
       this.$axios.get('annonces').then(res => {
@@ -38,13 +46,18 @@ export default {
     }
   },
   asyncData (context) {
-    return context.app.$axios.get('annonces').then(res => (
-      { annonces: res.data }
+    return context.app.$axios.get('annonces?populate=[{"path":"creator"}, {"path":"sport"}]').then(res => (
+      context.app.store.commit('SET_ANNONCES', res.data)
     ))
   }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  .search-result {
+    width: 100%;
+  }
+  .search-result_item {
+    border: 1px solid blue;
+  }
 </style>

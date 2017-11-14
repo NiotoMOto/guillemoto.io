@@ -1,4 +1,3 @@
-
 export const state = () => ({
   register: {
     password: '',
@@ -19,4 +18,8 @@ export const mutations = {
   updateField (state, { form, field, value }) {
     state[form][field] = value
   }
+}
+
+export const actions = {
+
 }

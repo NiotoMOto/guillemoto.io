@@ -1,5 +1,6 @@
 <template>
   <div class="cs-search">
+    <form v-on:submit="search">
      <v-select
         class="cs-search_sport"
         id="sport"
@@ -30,9 +31,10 @@
         type="date"
         :placeholder="$t('inputs.date')"
       />
-      <button class="cta cta-search" type="button">
+      <button class="cta cta-search" type="submit">
         {{ $t('buttons.search') }}
       </button>
+    </form>
   </div>
 </template>
 
@@ -67,6 +69,9 @@ export default {
     updateField (field, value) {
       console.log(field, value)
       this.$store.commit('forms/updateField', { form: this.form, field, value })
+    },
+    search () {
+      this.$store.dispatch('search', this.$store.state.forms.search)
     }
   }
 }

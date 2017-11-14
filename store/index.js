@@ -1,11 +1,13 @@
 import axios from 'axios'
+import _ from 'lodash'
 
 import config from '../config'
 
 export const state = () => ({
   user: null,
   locales: ['en', 'fr'],
-  local: 'en'
+  local: 'en',
+  annonces: []
 })
 
 export const mutations = {
@@ -16,6 +18,9 @@ export const mutations = {
     if (state.locales.indexOf(locale) !== -1) {
       state.locale = locale
     }
+  },
+  SET_ANNONCES (state, annonces) {
+    state.annonces = annonces
   }
 }
 
@@ -49,6 +54,13 @@ export const actions = {
   async register ({ state, commit }) {
     const { data } = await axios.post('/api/register', state.forms.register)
     commit('SET_USER', data)
+  },
+
+  async search ({ commit }) {
+    const query = _.pickBy(this.state.forms.search, (i) => (i && i.length > 0))
+    const { data } = await axios.get(
+      `${config.apiUrl}/annonces?query=${JSON.stringify(query)}&populate=[{"path":"creator"}, {"path":"sport"}]`)
+    commit('SET_ANNONCES', data)
   }
 
 }
