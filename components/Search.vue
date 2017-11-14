@@ -1,6 +1,6 @@
 <template>
   <div class="cs-search">
-    <form v-on:submit="search">
+    <form v-on:submit="search($event)">
      <v-select
         class="cs-search_sport"
         id="sport"
@@ -70,7 +70,8 @@ export default {
       console.log(field, value)
       this.$store.commit('forms/updateField', { form: this.form, field, value })
     },
-    search () {
+    search (e) {
+      e.preventDefault()
       this.$store.dispatch('search', this.$store.state.forms.search)
     }
   }
