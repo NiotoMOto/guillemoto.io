@@ -1,9 +1,13 @@
 <template>
   <div class="cs-search">
-     <v-input
+     <v-select
         class="cs-search_sport"
         id="sport"
         :value="sport"
+        :items="sports"
+        attrLabel="name"
+        attrValue="_id"
+        :changeHandler="updateField"
         name="sport"
         type="text"
         :placeholder="$t('inputs.sport')"
@@ -12,6 +16,7 @@
         class="cs-search_city"
         id="city"
         :value="city"
+        :changeHandler="updateField"
         name="city"
         type="text"
         :placeholder="$t('inputs.city')"
@@ -20,6 +25,7 @@
         class="cs-search_date"
         id="date"
         :value="city"
+        :changeHandler="updateField"
         name="date"
         type="date"
         :placeholder="$t('inputs.date')"
@@ -32,9 +38,10 @@
 
 <script>
 import vInput from '~/components/Input.vue'
+import vSelect from '~/components/Select.vue'
 export default {
   components: {
-    vInput
+    vInput, vSelect
   },
   data: () => ({
     users: [],
@@ -51,6 +58,15 @@ export default {
     },
     date () {
       return this.$store.state.forms.search.date
+    },
+    sports () {
+      return this.$store.state.static.sports
+    }
+  },
+  methods: {
+    updateField (field, value) {
+      console.log(field, value)
+      this.$store.commit('forms/updateField', { form: this.form, field, value })
     }
   }
 }
