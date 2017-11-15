@@ -67,7 +67,6 @@ export default {
   },
   methods: {
     updateField (field, value) {
-      console.log(field, value)
       this.$store.commit('forms/updateField', { form: this.form, field, value })
     },
     search (e) {

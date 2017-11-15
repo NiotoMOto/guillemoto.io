@@ -7,7 +7,8 @@ export const state = () => ({
   user: null,
   locales: ['en', 'fr'],
   local: 'en',
-  annonces: []
+  annonces: [],
+  annonce: null
 })
 
 export const mutations = {
@@ -21,6 +22,9 @@ export const mutations = {
   },
   SET_ANNONCES (state, annonces) {
     state.annonces = annonces
+  },
+  SET_ANNONCE (state, annonce) {
+    state.annonce = annonce
   }
 }
 
