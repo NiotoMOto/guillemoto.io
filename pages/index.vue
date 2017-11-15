@@ -12,11 +12,22 @@
         </div>
         <img class="slider" src="~/assets/images/slide1.jpg">
     </div>
-    Annonce
-    <div class="search-result">
-      <Annonce :annonce="annonce" v-for="annonce in annonces" :key="annonce._id" />
+    <div class="cs-content-wrapper">
+      <aside class="cs-content cs-main-content">
+        Annonce
+        <div class="search-result">
+          <Annonce :annonce="annonce" v-for="annonce in annonces" :key="annonce._id" />
+        </div>
+      </aside>
+
+      <aside class="cs-content cs-side-content">
+
+      </aside>
+
+     
     </div>
-  </div>
+    </div>
+ 
 </template>
 
 <script>
@@ -53,5 +64,20 @@ export default {
 <style lang="scss">
   .search-result_item {
     border: 1px solid blue;
+  }
+
+  .cs-content-wrapper{
+    width: 80%;
+    margin: 0 auto;
+    .cs-content{
+      float: left;
+    }
+
+    .cs-main-content{
+      width: 75%;
+    }
+    .cs-side-content {
+      width: 20%;
+    }
   }
 </style>
