@@ -12,23 +12,20 @@
         </div>
         <img class="slider" src="~/assets/images/slide1.jpg">
     </div>
-
+    Annonce
     <div class="search-result">
-      <div class="search-result_item" v-for="annonce in annonces" :key="annonce._id">
-        <div>{{ annonce.creator.firstName }} {{ annonce.creator.lastName }}</div>
-        <div>{{ annonce.sport.name }}</div>
-        <div>{{ annonce.name }}</div>
-      </div>
+      <Annonce :annonce="annonce" v-for="annonce in annonces" :key="annonce._id" />
     </div>
   </div>
 </template>
 
 <script>
 import SearchComponent from '~/components/Search.vue'
+import Annonce from '~/components/Annonce.vue'
 
 export default {
   components: {
-    SearchComponent
+    SearchComponent, Annonce
   },
   computed: {
     user () {
@@ -54,9 +51,6 @@ export default {
 </script>
 
 <style lang="scss">
-  .search-result {
-    width: 100%;
-  }
   .search-result_item {
     border: 1px solid blue;
   }

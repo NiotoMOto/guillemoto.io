@@ -5,7 +5,7 @@
         <li class="menu-items burguer-menu"><i class="cs-font cs-font-burger"></i>Menu</li>
           
         <li class="menu-items cs-logo">            
-          <a class="logo link" href="#" alt="logo"></a>
+          <nuxt-link :to="path('/')" class="logo link" href="#" alt="logo"></nuxt-link>
         </li>            
       </ul>
       <ul class="menu menu-right">
@@ -34,7 +34,9 @@
         </li>         
       </ul>    
     </header>
-
+    <div class="content-app">
+      <nuxt/>
+    </div>
     <div id="content" class="content-bottom">
       <!-- <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
       <p><nuxt-link :to="path('/annonces/create')">{{ $t('links.create_annonce') }}</nuxt-link></p>
@@ -51,7 +53,6 @@
         <LoginOrRegister />
       </Modal>
     </div>
-    <nuxt/>
   </div>
 </template>
 
@@ -59,6 +60,7 @@
   import LoginOrRegister from '~/components/LoginOrRegister.vue'
   import Logo from '~/components/Logo.vue'
   import Modal from '~/components/Modal.vue'
+  import { path } from '~/utils/paths.js'
 
   export default {
     components: {
@@ -80,7 +82,7 @@
         this.$store.dispatch('logout')
       },
       path (url) {
-        return this.$i18n.locale === 'en' ? url : '/' + this.$i18n.locale + url
+        return path(url, this)
       },
       toggleLoginModal () {
         this.$store.commit('ui/toggleModal', { modal: 'login' })
@@ -241,6 +243,7 @@ html {
     width: 100%;
     height: 60px;
     position: fixed;
+    top: 0;
     z-index: 9;
     background: #fff;
 }
@@ -285,5 +288,8 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+.content-app {
+  margin-top: 60px;
 }
 </style>
