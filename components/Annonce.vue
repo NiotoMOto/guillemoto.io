@@ -8,14 +8,14 @@
       <aside class="anounce-item_items anounce-details">
         <div class="anounce-detail-name">{{ annonce.sport.name }}</div> 
         <div class="anounce-detail-link">   
-         <nuxt-link class="anounce-link"         
+        <nuxt-link class="anounce-link"        
           :to="path(`/annonces/${annonce._id}`)">
-            <i class="cs-font cs-font-position"> </i> 
-          {{ annonce.name }}
-      </nuxt-link>
+          <i class="cs-font cs-font-position"></i> 
+          <span class="anounce-name">{{ annonce.name }}</span>
+        </nuxt-link>
       </div>   
       <div class="anounce-item-related_info">
-        <span class="related-info completion-team-info"> <i class="cs-font cs-font-team"></i> 7 inscrits</span>
+        <span class="related-info completion-team-info"> <i class="cs-font cs-font-team"></i>7 inscrits</span>
         <span class="related-info completion-team-xpect"> <i class="cs-font cs-font-alone"></i>3 places restantes</span>
         <span class="related-info viewer-info"> <i class="cs-font cs-font-viewer"></i>Annonce vue 77 fois</span>
       </div>
@@ -55,8 +55,8 @@
     border-right: 1px solid #ccc;
     padding-right: 16px;
     .anoucer-pict{
-      width: 50px;
-      height: 50px;
+      width: 70px;
+      height: 70px;
       margin: 0 auto;
       border-radius: 100%;
       background: #ccc;
@@ -74,26 +74,30 @@
     padding-left: 16px;
     .anounce-detail-name{
       color: #41b883;
-      font-size: 26px;
+      font-size: 20px;
       font-weight: bold;
       margin-bottom: 16px;      
     }
     .anounce-detail-link {      
       margin-bottom: 16px;
       .anounce-link{
-        color: #494848;
-        text-decoration: none;
-        font-weight: bold;
+        color: #424242;
+        text-decoration: none;       
       }
       .cs-font{
-         color: #41b883;         
+         color: #41b883;
+         margin-right: 8px;         
+      }
+      .anounce-name{
+        //color: red;
       }
     }
     .related-info{
-      color: #ccc;
+      color: #b1b0b0;
       font-size: 14px;
       .cs-font{
         color: #41b883;
+        margin-right: 8px;
       }
       &.viewer-info{
         float: right;
