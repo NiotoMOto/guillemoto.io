@@ -33,7 +33,8 @@
         "date": "date"
     },
     "buttons": {
-        "search": "search"
+        "search": "search",
+        "create_annonce": "create annonce"
     },
     "sports": {
         "COURSE_PIED": "running",

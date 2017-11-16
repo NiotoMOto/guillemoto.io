@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 export const state = () => ({
   register: {
     password: '',
@@ -11,12 +13,20 @@ export const state = () => ({
     sport: '',
     city: '',
     date: ''
+  },
+  annonce: {
+    city: '',
+    date: '',
+    sport: ''
   }
 })
 
 export const mutations = {
   updateField (state, { form, field, value }) {
     state[form][field] = value
+  },
+  reset (state, { form }) {
+    state[form] = _.mapValues(state[form], '')
   }
 }
 
