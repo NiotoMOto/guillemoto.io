@@ -35,10 +35,8 @@
               sem, scelerisque vel ligula quis, tristique imperdiet dui.
             </p>
         </div>
-      </aside>
-
-     
-    </div>
+      </aside>     
+    </div>  
     </div>
  
 </template>
@@ -91,6 +89,7 @@ export default {
       background: #fff;
       padding: 16px;
       margin-top: 32px;
+      min-height: 400px;
     }
     .cs-side-content {
       width: 21%;

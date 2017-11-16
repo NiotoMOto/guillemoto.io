@@ -35,7 +35,7 @@
       </ul>    
     </header>
     <div class="content-app">
-      <nuxt/>
+      <nuxt/> 
     </div>
     <div id="content" class="content-bottom">
       <!-- <p><nuxt-link :to="path('/')">{{ $t('links.home') }}</nuxt-link></p>
@@ -53,6 +53,9 @@
         <LoginOrRegister />
       </Modal>
     </div>
+    <section class="cs-footer-wrapper">
+      <div class="cs-footer"></div>
+    </section>  
   </div>
 </template>
 
@@ -291,5 +294,12 @@ html {
 }
 .content-app {
   margin-top: 60px;
+}
+
+.cs-footer-wrapper{
+  width: 100%;
+  background: #444;
+  height: 70px;
+  display: inline-block;
 }
 </style>
