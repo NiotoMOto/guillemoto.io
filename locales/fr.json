@@ -33,7 +33,8 @@
         "date": "date"
     },
     "buttons": {
-        "search": "rechercher"
+        "search": "rechercher",
+        "create_annonce": "Créer l'annonce"
     },
     "sports": {
         "COURSE_PIED": "Course à pied",

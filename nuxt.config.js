@@ -93,7 +93,7 @@ module.exports = {
     // We add /api/login & /api/logout routes
     '~/api'
   ],
-  plugins: ['~/plugins/i18n.js'],
+  plugins: ['~/plugins/i18n.js', '~/plugins/format'],
   generate: {
     routes: [
       '/', '/login', '/register', '/annonces/create',

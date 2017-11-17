@@ -3,22 +3,23 @@
       <aside class="anounce-item_items anouncer-info">
         <div class="anoucer-pict">          
         </div>
-        <div class="annoucer-name">{{ annonce.creator.firstName }} {{ annonce.creator.lastName }}</div>
+        <div class="annoucer-name">{{ annonce.creator.username }}</div>
       </aside>
       <aside class="anounce-item_items anounce-details">
+        <div class="anounce-detail-date">{{ annonce.createdAt | formatDate }}</div>
         <div class="anounce-detail-name">{{ annonce.sport.name }}</div> 
         <div class="anounce-detail-link">   
-        <nuxt-link class="anounce-link"        
-          :to="path(`/annonces/${annonce._id}`)">
-          <i class="cs-font cs-font-position"></i> 
-          <span class="anounce-name">{{ annonce.name }}</span>
-        </nuxt-link>
-      </div>   
-      <div class="anounce-item-related_info">
-        <span class="related-info completion-team-info"> <i class="cs-font cs-font-team"></i>7 inscrits</span>
-        <span class="related-info completion-team-xpect"> <i class="cs-font cs-font-alone"></i>3 places restantes</span>
-        <span class="related-info viewer-info"> <i class="cs-font cs-font-viewer"></i>Annonce vue 77 fois</span>
-      </div>
+          <nuxt-link class="anounce-link"        
+            :to="path(`/annonces/${annonce._id}`)">
+            <i class="cs-font cs-font-position"></i> 
+            <span class="anounce-name">{{ annonce.name }}</span>
+          </nuxt-link>
+        </div>   
+        <div class="anounce-item-related_info">
+          <span class="related-info completion-team-info"> <i class="cs-font cs-font-team"></i>7 inscrits</span>
+          <span class="related-info completion-team-xpect"> <i class="cs-font cs-font-alone"></i>3 places restantes</span>
+          <span class="related-info viewer-info"> <i class="cs-font cs-font-viewer"></i>Annonce vue 77 fois</span>
+        </div>
       </aside>      
      
     </div>
@@ -72,11 +73,17 @@
   .anounce-details{
     width: 80%;
     padding-left: 16px;
-    .anounce-detail-name{
+    .anounce-detail-name {
       color: #41b883;
       font-size: 20px;
       font-weight: bold;
       margin-bottom: 16px;      
+    }
+    .anounce-detail-date {
+      color: #41b883;
+      font-size: 15px;
+      float: right;
+      font-weight: bold;
     }
     .anounce-detail-link {      
       margin-bottom: 16px;

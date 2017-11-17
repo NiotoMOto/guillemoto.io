@@ -65,6 +65,19 @@ export const actions = {
     const { data } = await axios.get(
       `${config.apiUrl}/annonces?query=${JSON.stringify(query)}&populate=[{"path":"creator"}, {"path":"sport"}]`)
     commit('SET_ANNONCES', data)
+  },
+
+  async createAnnonce ({ commit, router }) {
+    const { data } = await axios.post(
+      `${config.apiUrl}/annonces`,
+      {
+        ...this.state.forms.annonce,
+        creator: this.state.user._id
+      }
+    )
+    commit('SET_ANNONCE', data)
+    commit('forms/reset', { form: 'annonce' })
+    return data
   }
 
 }
