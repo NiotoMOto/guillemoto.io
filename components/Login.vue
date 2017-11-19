@@ -1,11 +1,21 @@
 <template>
-  <section>
-    <h1>{{ $t('login.login') }}</h1>
-    <div v-if="!user">
-      <p><a href="/api/auth/facebook">facebook</a></p>
-      <p><a href="/api/auth/google">google</a></p>
+  <section class="auth-wrapper r">
+    <div  v-if="!user">
+      <p class="auth auth-facebook">        
+        <a class="cs-link" href="/api/auth/facebook">
+          <i class="cs-font cs-font-facebook"></i>
+          {{ $t('login.login_facebook') }}
+        </a>
+      </p>
+      <p class="auth auth-google">
+        <a class="cs-link" href="/api/auth/google">
+          <i class="cs-font cs-font-google"></i>
+          {{ $t('login.login_google') }}
+        </a>
+      </p>
+      <p class="cs-choice">- ou -</p>
       <form v-on:submit.prevent="login">
-        <div>
+        <div class="field field-login">
           <v-input
             id="email"
             :value="email"
@@ -25,7 +35,7 @@
             :label="$t('inputs.password')"
           />
         </div>
-        <button type="submit">{{ $t('login.login') }}</button>
+        <button class="cta cta-login" type="submit">{{ $t('login.login') }}</button>
       </form>
     </div>
   </section>

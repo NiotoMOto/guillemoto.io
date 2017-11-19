@@ -1,3 +1,5 @@
+@import './fonts/cs-font.scss';
+
 .VueToNuxtLogo {
   display: inline-block;
   animation: turn 2s linear forwards 1s;
@@ -6,6 +8,13 @@
   overflow: hidden;
   height: 180px;
   width: 245px;
+}
+
+body{
+  font-family: "Roboto",sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  background: #f7f7f7;
 }
 
 .Triangle {

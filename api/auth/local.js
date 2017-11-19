@@ -1,6 +1,6 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-const config = require('../../config/server')
+const config = require('../../config/')
 const axios = require('axios')
 
 passport.use(new LocalStrategy(
@@ -28,7 +28,6 @@ passport.use('local-signup', new LocalStrategy(
     passReqToCallback: true
   },
   function (req, email, password, done) {
-    console.log(req)
     axios.post(`${config.apiUrl}/custom/register/`, req.body).then(apiRes => {
       const { user, token } = apiRes.data
       done(null, { ...user, token })

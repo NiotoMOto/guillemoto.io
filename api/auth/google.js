@@ -1,6 +1,6 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
-const config = require('../../config/server')
+const config = require('../../config/')
 const axios = require('axios')
 
 function extractProfile (profile) {
@@ -20,10 +20,11 @@ function extractProfile (profile) {
   }
 }
 
+const { clientID, clientSecret } = config.social.google
 passport.use(new GoogleStrategy({
-  clientID: '880345811505-sjcsjnh76rri2k2hb2uo7826ebk55cg1.apps.googleusercontent.com',
-  clientSecret: 'ySwcBbC7l0D4P_sgu1WVI8Gh',
-  callbackURL: 'http://localhost:3000/api/auth/google/callback',
+  clientID,
+  clientSecret,
+  callbackURL: `${config.appUrl}/api/auth/google/callback`,
   accessType: 'offline'
 }, function (accessToken, refreshToken, profile, done) {
   const user = extractProfile(profile)

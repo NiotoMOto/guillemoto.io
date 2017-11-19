@@ -3,10 +3,14 @@
         "title": "Bienvenue"
     },
     "login": {
-        "login": "se connecter"
+        "login": "login",
+        "login_facebook": "Se conncecter avec son compte facebook",
+        "login_google": "Se conncecter avec son compte google"
     },
     "register" : {
-        "register": "s'enregistrer"
+        "register": "register",
+        "register_facebook": "S'enregistrer avec son compte facebook",
+        "register_google": "S'enregistrer avec son compte google"
     },
     "links" : {
         "french": "francais",
@@ -23,6 +27,19 @@
         "username": "botre pseudo",
         "email": "Votre addrese email",
         "password": "votre mot de passe",
-        "login": "votre identifiant"
+        "login": "votre identifiant",
+        "sport": "sport",
+        "city": "ville",
+        "date": "date"
+    },
+    "buttons": {
+        "search": "rechercher",
+        "create_annonce": "Créer l'annonce"
+    },
+    "sports": {
+        "COURSE_PIED": "Course à pied",
+        "FOOT": "football",
+        "BASKET": "basket-ball",
+        "VELO": "vélo"
     }
 }

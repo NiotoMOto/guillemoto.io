@@ -1,12 +1,14 @@
 const bodyParser = require('body-parser')
 const session = require('express-session')
-const config = require('./config/server')
+const config = require('./config/')
+const WebfontPlugin = require('webpack-webfont').default
+const path = require('path')
 
 module.exports = {
   /*
   ** Headers of the page
   */
-  dev: true,
+  dev: process.env.NODE_ENV !== 'production',
   head: {
     title: 'annbouje',
     meta: [
@@ -41,7 +43,7 @@ module.exports = {
           return config
         },
         baseURL: config.apiUrl,
-        browserBaseURL: config.apiUrl
+        browserBaseURL: config.browserApiUrl
       }
     ]
   ],
@@ -62,6 +64,19 @@ module.exports = {
         })
       }
     },
+    plugins: [
+      new WebfontPlugin({
+        files: path.resolve(__dirname, './fixtures/svg-icons/**/*.svg'),
+        css: true,
+        template: 'scss',
+        fontName: 'cs-font',
+        cssTemplateFontPath: '~/assets/css/fonts/',
+        dest: {
+          fontsDir: path.resolve(__dirname, './assets/css/fonts'),
+          stylesDir: path.resolve(__dirname, './assets/css/fonts')
+        }
+      })
+    ],
     vendor: ['axios', 'vue-i18n']
   },
   serverMiddleware: [
@@ -78,7 +93,7 @@ module.exports = {
     // We add /api/login & /api/logout routes
     '~/api'
   ],
-  plugins: ['~/plugins/i18n.js'],
+  plugins: ['~/plugins/i18n.js', '~/plugins/format'],
   generate: {
     routes: [
       '/', '/login', '/register', '/annonces/create',
