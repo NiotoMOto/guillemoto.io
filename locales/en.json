@@ -9,7 +9,7 @@
     },
     "register" : {
         "register": "register",
-        "register_facebook": "ccc whith facebook account",
+        "register_facebook": "register whith facebook account",
         "register_google": "register with google account"
     },
     "links" : {
