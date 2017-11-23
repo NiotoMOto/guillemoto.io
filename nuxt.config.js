@@ -17,7 +17,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Ann bouje !' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons', rel: 'stylesheet' }
     ]
   },
   /*
@@ -28,7 +29,8 @@ module.exports = {
   ** Build configuration
   */
   css: [
-    '@/assets/css/main.scss'
+    '@/assets/css/main.scss',
+    '~/assets/style/app.styl'
   ],
 
   modules: [
@@ -93,7 +95,7 @@ module.exports = {
     // We add /api/login & /api/logout routes
     '~/api'
   ],
-  plugins: ['~/plugins/i18n.js', '~/plugins/format'],
+  plugins: ['~/plugins/i18n.js', '~/plugins/format', '~/plugins/vuetify.js'],
   generate: {
     routes: [
       '/', '/login', '/register', '/annonces/create',
