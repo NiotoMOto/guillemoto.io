@@ -10,11 +10,11 @@ module.exports = {
   */
   dev: process.env.NODE_ENV !== 'production',
   head: {
-    title: 'annbouje',
+    title: 'Guillemoto.io',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Ann bouje !' }
+      { hid: 'description', name: 'description', content: 'Guillemoto.iot' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -29,7 +29,7 @@ module.exports = {
   ** Build configuration
   */
   css: [
-    '@/assets/css/main.scss',
+    '~/assets/css/main.scss',
     '~/assets/style/app.styl'
   ],
 
@@ -47,7 +47,8 @@ module.exports = {
         baseURL: config.apiUrl,
         browserBaseURL: config.browserApiUrl
       }
-    ]
+    ],
+    '@nuxtjs/font-awesome'
   ],
   router: {
     middleware: 'i18n'
