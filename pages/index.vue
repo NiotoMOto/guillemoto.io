@@ -24,8 +24,45 @@
           </div>
         </v-layout>
       </v-parallax>
-      <div class="test">
-
+      <div class="skills">
+        <v-avatar
+          class="grey lighten-4"
+        >
+          <img src="~/assets/images/angular.png" alt="avatar">
+        </v-avatar>
+        <v-avatar
+          class="grey lighten-4"
+        >
+          <img src="~/assets/images/javascript.png" alt="avatar">
+        </v-avatar>
+        <v-avatar
+          class="grey lighten-4"
+        >
+          <img src="~/assets/images/html5.png" alt="avatar">
+        </v-avatar>
+        <v-avatar
+          class="grey lighten-4"
+        >
+          <img src="~/assets/images/css.png" alt="avatar">
+        </v-avatar>
+        <v-avatar
+          class="grey darken-4"
+        >
+          <img src="~/assets/images/react.png" alt="avatar">
+        </v-avatar>
+        <v-tooltip top>
+          <v-avatar
+            class="grey darken-3"
+          >
+            <img src="~/assets/images/nodejs.png" alt="avatar">
+          </v-avatar>
+          <span>Nodejs</span>
+        </v-tooltip>
+      </div>
+      <div class="clients">
+        <img src="~/assets/images/mytf1.png" height="50px" alt="mytf1">
+        <img src="~/assets/images/societe_generale.jpg" height="50px" alt="société générale">
+        <img src="~/assets/images/rdc.png" height="50px" alt="rue du commerce">
       </div>
     </section>
     <section>
@@ -51,6 +88,20 @@
     opacity: .7;
     .title {
       opacity: 1;
+    }
+  }
+  .skills {
+    text-align: center;
+    padding: 15px;
+    .avatar {
+      margin: 10px;
+    }
+  }
+  .clients {
+    padding: 15px;
+    text-align: center;
+    img {
+      margin: 10px;
     }
   }
 </style>
