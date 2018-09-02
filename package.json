@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^4.4.0",
+    "@nuxtjs/font-awesome": "^1.0.3",
     "axios": "^0.17.0",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
