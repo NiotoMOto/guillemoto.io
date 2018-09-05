@@ -14,6 +14,12 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free": "^5.3.1",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-brands-svg-icons": "^5.3.1",
+    "@fortawesome/vue-fontawesome": "^0.1.1",
     "@nuxtjs/axios": "^4.4.0",
     "@nuxtjs/font-awesome": "^1.0.3",
     "axios": "^0.17.0",
@@ -27,6 +33,7 @@
     "morgan": "^1.9.0",
     "nodemailer": "^4.3.1",
     "nuxt": "^1.0.0-rc11",
+    "nuxt-device-detect": "^1.1.1",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth20": "^1.0.0",

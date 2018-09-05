@@ -1,7 +1,4 @@
 import axios from 'axios'
-import _ from 'lodash'
-
-import config from '../config'
 
 export const state = () => ({
   user: null,
@@ -30,13 +27,6 @@ export const mutations = {
 
 export const actions = {
   // nuxtServerInit is called by Nuxt.js before server-rendering every page
-  async nuxtServerInit ({ commit }, { req }) {
-    if (req.session && req.session.passport && req.session.passport.user) {
-      commit('SET_USER', req.session.passport.user)
-    }
-    const { data } = await axios.get(`${config.apiUrl}/sports`)
-    commit('static/SET_SPORTS', data)
-  },
   async login ({ state, commit }) {
     try {
       const { data } = await axios.post('/api/login', state.forms.login)
@@ -58,26 +48,6 @@ export const actions = {
   async register ({ state, commit }) {
     const { data } = await axios.post('/api/register', state.forms.register)
     commit('SET_USER', data)
-  },
-
-  async search ({ commit }) {
-    const query = _.pickBy(this.state.forms.search, (i) => (i && i.length > 0))
-    const { data } = await axios.get(
-      `${config.apiUrl}/annonces?query=${JSON.stringify(query)}&populate=[{"path":"creator"}, {"path":"sport"}]`)
-    commit('SET_ANNONCES', data)
-  },
-
-  async createAnnonce ({ commit, router }) {
-    const { data } = await axios.post(
-      `${config.apiUrl}/annonces`,
-      {
-        ...this.state.forms.annonce,
-        creator: this.state.user._id
-      }
-    )
-    commit('SET_ANNONCE', data)
-    commit('forms/reset', { form: 'annonce' })
-    return data
   }
 
 }

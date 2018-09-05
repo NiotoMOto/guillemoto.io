@@ -24,45 +24,56 @@
           </div>
         </v-layout>
       </v-parallax>
-      <div class="skills">
-        <v-avatar
-          class="grey lighten-4"
-        >
-          <img src="~/assets/images/angular.png" alt="avatar">
-        </v-avatar>
-        <v-avatar
-          class="grey lighten-4"
-        >
-          <img src="~/assets/images/javascript.png" alt="avatar">
-        </v-avatar>
-        <v-avatar
-          class="grey lighten-4"
-        >
-          <img src="~/assets/images/html5.png" alt="avatar">
-        </v-avatar>
-        <v-avatar
-          class="grey lighten-4"
-        >
-          <img src="~/assets/images/css.png" alt="avatar">
-        </v-avatar>
-        <v-avatar
-          class="grey darken-4"
-        >
-          <img src="~/assets/images/react.png" alt="avatar">
-        </v-avatar>
-        <v-tooltip top>
-          <v-avatar
-            class="grey darken-3"
+      <v-layout class="skills" row wrap>
+        <v-card  v-for="(skill, i) in skills" :key="i">
+          <v-img
+            class="white--text"
+            height="200px"
+            src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
           >
-            <img src="~/assets/images/nodejs.png" alt="avatar">
-          </v-avatar>
-          <span>Nodejs</span>
-        </v-tooltip>
-      </div>
+            <v-container fill-height fluid>
+              <v-layout fill-height>
+                <v-flex xs12 align-end flexbox>
+                  <span class="headline">Top 10 Australian beaches</span>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-img>
+          <v-card-title>
+            <div>
+              <span class="grey--text">Number 10</span><br>
+              <span>Whitehaven Beach</span><br>
+              <span>Whitsunday Island, Whitsunday Islands</span>
+            </div>
+          </v-card-title>
+          <v-card-actions>
+            <v-btn flat color="orange">Share</v-btn>
+            <v-btn flat color="orange">Explore</v-btn>
+          </v-card-actions>
+        </v-card>
+        <v-expansion-panel inset>
+       
+          <v-expansion-panel-content v-for="(skill, i) in skills" :key="i">
+            <div slot="header">
+              <div class="text-center">
+                <font-awesome-icon 
+                  :icon="['fab', skill.icon]"
+                  size="lg"
+                />
+              </div>
+              <SkillLine :icon="skill.icon" :value="skill.value" />
+            </div>
+            <v-card>
+              <v-card-title>{{skill.title}}</v-card-title>
+              <v-card-text>
+                <span class="xp">{{ skill.xp }}</span>
+              </v-card-text>
+            </v-card>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-layout>
       <div class="clients">
-        <img src="~/assets/images/mytf1.png" height="50px" alt="mytf1">
-        <img src="~/assets/images/societe_generale.jpg" height="50px" alt="société générale">
-        <img src="~/assets/images/rdc.png" height="50px" alt="rue du commerce">
+          
       </div>
     </section>
     <section>
@@ -72,7 +83,22 @@
 </template>
 
 <script>
+import SkillLine from '~/components/SkillLine'
+
+export default {
+  components: {SkillLine},
+  data: () => ({
+    skills: [
+      { icon: 'react', value: 70, title: 'React', xp: '2 ans' },
+      { icon: 'js', value: 60, title: 'javascript', xp: '4 ans' },
+      { icon: 'node', value: 40, title: 'Nodejs', xp: '2 ans' },
+      { icon: 'css3', value: 40, title: 'Css', xp: '5 ans' },
+      { icon: 'sass', value: 40, title: 'Sass', xp: '2 ans' }
+    ]
+  })
+}
 </script>
+
 
 <style lang="scss">
   .test {
@@ -91,7 +117,7 @@
     }
   }
   .skills {
-    text-align: center;
+    // text-align: center;
     padding: 15px;
     .avatar {
       margin: 10px;
@@ -103,5 +129,8 @@
     img {
       margin: 10px;
     }
+  }
+  .text-center {
+    text-align: center;
   }
 </style>

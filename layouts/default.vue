@@ -89,6 +89,7 @@
   .title-app {
     transition-duration: .7s;
     transition-timing-function: ease;
+    margin-left: 22px;
     position: absolute;
   }
   .icon-title {

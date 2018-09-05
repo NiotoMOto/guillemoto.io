@@ -34,6 +34,7 @@ module.exports = {
   ],
 
   modules: [
+    'nuxt-device-detect',
     [
       '@nuxtjs/axios',
       {
@@ -47,8 +48,7 @@ module.exports = {
         baseURL: config.apiUrl,
         browserBaseURL: config.browserApiUrl
       }
-    ],
-    '@nuxtjs/font-awesome'
+    ]
   ],
   router: {
     middleware: 'i18n'
@@ -96,7 +96,7 @@ module.exports = {
     // We add /api/login & /api/logout routes
     '~/api'
   ],
-  plugins: ['~/plugins/i18n.js', '~/plugins/format', '~/plugins/vuetify.js'],
+  plugins: ['~/plugins/i18n.js', '~/plugins/format', '~/plugins/vuetify.js', '~/plugins/font-awesome'],
   generate: {
     routes: [
       '/', '/login', '/register', '/annonces/create',
