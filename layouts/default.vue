@@ -6,12 +6,11 @@
         <img
           width="40px"
           class="mb-4 appbar-logo"
-          src="~/assets/images/guillemot_light.png"
+          src="~/assets/images/moi.png"
           v-if="showLogo"
         />
       </transition>
-      <v-toolbar-title id="app-title" ref="titleApp" :class="titleAppClasses" v-text="title">
-      </v-toolbar-title>
+      <v-toolbar-title id="app-title" ref="titleApp" :class="titleAppClasses">SebastionFerandez<span class="blue--text text--lighten-2">.io</span></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon class="icon-title">fa-github</v-icon>
@@ -24,7 +23,7 @@
       <nuxt />
     </v-content>
     <v-footer :fixed="fixed" app>
-      Guillemoto.io <span>&copy; 2017</span>
+      SebastionFerandez.io <span>&copy; 2017</span>
     </v-footer>
   </v-app>
  
@@ -79,7 +78,7 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'GUILLEMOTO.IO'
+        title: 'SebastionFerandez.io'
       }
     }
   }

@@ -31,11 +31,7 @@ export const mutations = {
 export const actions = {
   // nuxtServerInit is called by Nuxt.js before server-rendering every page
   async nuxtServerInit ({ commit }, { req }) {
-    if (req.session && req.session.passport && req.session.passport.user) {
-      commit('SET_USER', req.session.passport.user)
-    }
-    const { data } = await axios.get(`${config.apiUrl}/sports`)
-    commit('static/SET_SPORTS', data)
+
   },
   async login ({ state, commit }) {
     try {
