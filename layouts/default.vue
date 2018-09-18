@@ -1,6 +1,8 @@
 <template>  
-  <v-app dark
-    v-scroll="onScroll">
+  <v-app
+    dark
+    v-scroll="onScroll"
+  >
     <v-toolbar fixed app :clipped-left="clipped">
       <transition name="fade">
         <img

@@ -25,55 +25,47 @@
         </v-layout>
       </v-parallax>
       <v-layout class="skills" row wrap>
-        <v-card  v-for="(skill, i) in skills" :key="i">
-          <v-img
-            class="white--text"
-            height="200px"
-            src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-          >
-            <v-container fill-height fluid>
-              <v-layout fill-height>
-                <v-flex xs12 align-end flexbox>
-                  <span class="headline">Top 10 Australian beaches</span>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-img>
-          <v-card-title>
-            <div>
-              <span class="grey--text">Number 10</span><br>
-              <span>Whitehaven Beach</span><br>
-              <span>Whitsunday Island, Whitsunday Islands</span>
-            </div>
-          </v-card-title>
-          <v-card-actions>
-            <v-btn flat color="orange">Share</v-btn>
-            <v-btn flat color="orange">Explore</v-btn>
-          </v-card-actions>
-        </v-card>
-        <v-expansion-panel inset>
-       
-          <v-expansion-panel-content v-for="(skill, i) in skills" :key="i">
-            <div slot="header">
-              <div class="text-center">
-                <font-awesome-icon 
-                  :icon="['fab', skill.icon]"
-                  size="lg"
-                />
+        <v-flex v-for="(skill, i) in skills" :key="i" md3 xs12>
+          <v-expansion-panel inset>
+            <v-expansion-panel-content >
+              <div slot="header">
+                <div class="text-center">
+                  <font-awesome-icon 
+                    :icon="['fab', skill.icon]"
+                    size="lg"
+                  />
+                </div>
+                <SkillLine :icon="skill.icon" :value="skill.value" />
               </div>
-              <SkillLine :icon="skill.icon" :value="skill.value" />
-            </div>
-            <v-card>
-              <v-card-title>{{skill.title}}</v-card-title>
-              <v-card-text>
-                <span class="xp">{{ skill.xp }}</span>
-              </v-card-text>
-            </v-card>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
+              <v-card>
+                <v-card-title class="skill-title" primary-title>
+                   <div class="headline">{{skill.title}}</div>
+                   <div>{{ skill.xp }} d'expériences</div>
+                </v-card-title>
+                <v-card-text>
+                  <div>
+                    {{skill.description}}
+                  </div>
+                   <v-list >
+                      <template  v-for="(job, index) in skill.jobs" >
+                        <v-list-tile :key="index" ripple @click="">
+                          <v-list-tile-content>
+                            <v-list-tile-title>{{ job.company }}</v-list-tile-title>
+                          </v-list-tile-content>
+                          <v-list-tile-action>
+                            <v-list-tile-action-text>{{ job.xp }}</v-list-tile-action-text>
+                          </v-list-tile-action>
+                        </v-list-tile>
+                        <v-divider v-if="index + 1 < skill.jobs.length" :key="`divider-${index}`"></v-divider>
+                      </template>
+                    </v-list>
+                </v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-flex>
       </v-layout>
       <div class="clients">
-          
       </div>
     </section>
     <section>
@@ -84,17 +76,12 @@
 
 <script>
 import SkillLine from '~/components/SkillLine'
+import skills from '~/datas/skills'
 
 export default {
   components: {SkillLine},
   data: () => ({
-    skills: [
-      { icon: 'react', value: 70, title: 'React', xp: '2 ans' },
-      { icon: 'js', value: 60, title: 'javascript', xp: '4 ans' },
-      { icon: 'node', value: 40, title: 'Nodejs', xp: '2 ans' },
-      { icon: 'css3', value: 40, title: 'Css', xp: '5 ans' },
-      { icon: 'sass', value: 40, title: 'Sass', xp: '2 ans' }
-    ]
+    skills
   })
 }
 </script>
@@ -132,5 +119,13 @@ export default {
   }
   .text-center {
     text-align: center;
+  }
+  .xp {
+    float: right;
+    display: inline-block;
+  }
+
+  .skill-title {
+    display: block;
   }
 </style>
