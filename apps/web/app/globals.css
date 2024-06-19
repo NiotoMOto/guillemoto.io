@@ -36,3 +36,53 @@ body {
     font-family: var(--font-matter-light);
 
 }
+
+.link:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 110%;
+    top:50px;
+    background: transparent;
+    transition: width 0.3s;
+    border-bottom: 2px solid ;
+    border-top: 2px solid ;
+    @apply border-deep-sea-400;
+}
+
+
+
+
+.link.event::after {
+    border-right: 2px solid ;
+    right: -15px;
+    @apply rounded-r-lg;
+    @apply border-deep-sea-400;
+
+}
+
+.link.odd::after {
+   left: -15px;
+   border-left: 2px solid ;
+   @apply rounded-l-lg;
+   @apply border-deep-sea-400;
+}
+
+
+@screen md {
+    .link::after {
+        width: 50px;
+    }
+    .link.event::after {
+        right: -50px;
+    }
+
+    .link.odd::after {
+        left: -50px;
+    }
+}
+
+ 
+
+

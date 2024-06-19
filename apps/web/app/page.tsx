@@ -5,7 +5,7 @@ import { Timeline } from "../components/timeline/Timeline";
 
 export default function Home() {
   return (
-    <main className="container mx-auto">
+    <main className="container mx-auto px-6">
       <h2 className="mb-2 flex items-center">
         <Image
           src="/antoine-guillemoto.jpg"

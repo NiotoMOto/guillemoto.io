@@ -1,5 +1,5 @@
-import { start } from "repl";
-import { Skill } from "../../types/skills";
+import { type Skill } from "../../types/skills";
+import classNames from "classnames";
 
 /*
 
@@ -356,7 +356,17 @@ export const Timeline = () => {
         <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
           {resume.map((job, index) => {
             return (
-              <div className="bg-code rounded-lg shadow-lg p-6">
+              <div
+                key={index}
+                className={`bg-code rounded-lg shadow-lg p-6 relative ${classNames(
+                  {
+                    event: index % 2 === 0,
+                    odd: index % 2 !== 0,
+                    first: index === 0,
+                    link: index !== resume.length - 1,
+                  }
+                )}`}
+              >
                 <h3 className="text-white text-lg font-bold">{job.position}</h3>
                 <h4 className="text-sm">
                   {job.company} - {job.dates.start} - {job.dates.end}
