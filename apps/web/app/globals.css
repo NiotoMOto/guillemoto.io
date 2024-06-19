@@ -1,39 +1,38 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.code {
+    font-family: var(--font-khula);
+    @apply bg-code;
+    @apply px-2;
+    @apply inline-block
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer code {
+    .javascript {
+        color: #f7df1e;
+    }
+    .typescript {
+        color: #007acc;
+    }
+    
+    .node {
+        color: #3f9381;
+    }
+    .react {
+        color: #61dafb;
+    }
+    .nextjs {
+        color: #c6c6c6;
+    }
 }
 
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+    font-synthesis: none;
+    font-feature-settings: "kern";
+    text-rendering: optimizeSpeed;
+    font-family: var(--font-matter-light);
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
