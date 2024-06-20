@@ -34,7 +34,6 @@ body {
     font-feature-settings: "kern";
     text-rendering: optimizeSpeed;
     font-family: var(--font-matter-light);
-
 }
 
 .link:after {
@@ -70,16 +69,16 @@ body {
 }
 
 
-@screen md {
+@screen xl {
     .link::after {
-        width: 50px;
+        width: 30px;
     }
     .link.event::after {
-        right: -50px;
+        right: -30px;
     }
 
     .link.odd::after {
-        left: -50px;
+        left: -30px;
     }
 }
 

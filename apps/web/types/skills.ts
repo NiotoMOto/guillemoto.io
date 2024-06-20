@@ -4,6 +4,7 @@ export interface Skill {
   position: string;
   desciption: string;
   mainSkills: string[];
+  slug: string;
 }
 
 interface Dates {
