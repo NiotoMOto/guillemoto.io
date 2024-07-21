@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${matterLight.variable} ${Khula.variable}  bg-gradient-to-r from-deep-sea-900 to-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${matterLight.variable} ${Khula.variable}  bg-gradient-to-tl from-deep-sea-900 to-black text-white`}
       >
         <Header />
         {children}

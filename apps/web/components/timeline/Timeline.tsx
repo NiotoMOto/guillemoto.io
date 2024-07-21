@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { resume } from "../../data/resume";
 import classNames from "classnames";
 
@@ -278,20 +279,18 @@ export const Timeline = () => {
             return (
               <div
                 key={job.slug}
-                className={`bg-code rounded-lg shadow-lg p-6 relative ${classNames(
-                  {
-                    event: index % 2 === 0,
-                    odd: index % 2 !== 0,
-                    first: index === 0,
-                    link: index !== resume.length - 1,
-                  }
-                )}`}
+                className={`bg-code rounded-lg  p-6 relative ${classNames({
+                  event: index % 2 === 0,
+                  odd: index % 2 !== 0,
+                  first: index === 0,
+                  link: index !== resume.length - 1,
+                })}`}
               >
                 <h3 className="text-white text-lg font-bold">{job.position}</h3>
                 <h4 className="text-sm">
                   {job.company} - {job.dates.start} - {job.dates.end}
                 </h4>
-                <p className=" text-sm mt-2">{job.desciption}</p>
+                <p className=" text-sm mt-2">{job.shortDesciption}</p>
                 <ul className="mt-4">
                   {job.mainSkills.map((skill, index) => {
                     return (
@@ -304,6 +303,12 @@ export const Timeline = () => {
                     );
                   })}
                 </ul>
+                <Link
+                  href={`/experiences/${job.slug}`}
+                  className="bottom-6 right-6 text-white float-end"
+                >
+                  En savoir plus
+                </Link>
               </div>
             );
           })}
